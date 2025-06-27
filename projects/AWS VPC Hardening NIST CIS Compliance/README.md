@@ -15,7 +15,7 @@ This project documents my hands-on journey to architect, deploy, and secure an e
 ## Documentation Structure
 All implementation details—including screenshots, configuration files, and compliance evidence—are organized within each step's dedicated repository section above. Navigate using the chapter links below:
 
-[▶ Step 1: Multisegmented VPC Creation & Hardening](https://github.com/ChadVanHalen/AWS---VPC-Hardening-with-NIST-CIS-Compliance-/blob/main/1%20-%20Multisegmented%20VPC%20Creation%20and%20Hardening.md) | 
+[▶ Step 1: Multisegmented VPC Creation & Hardening](https://github.com/ChadVanHalen/Tech-Portfolio/edit/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/README.md) | 
 [▶ Step 2: Identity & Access Management](#step-2-iam-hardening) | 
 [▶ Step 3: Threat Detection & Monitoring](#step-3-monitoring) |
 [▶ Step 4: Data Protection & Encryption](#step-2-iam-hardening) | 
