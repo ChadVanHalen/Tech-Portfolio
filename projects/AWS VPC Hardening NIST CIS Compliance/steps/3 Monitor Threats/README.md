@@ -61,22 +61,22 @@ Configured EventBridge rules to trigger on GuardDuty findings:
 
 ### Validated Working Components
 Lambda Quarantine Function:
--Successfully isolates instances when manually triggered
--Implements security group modification and forensic tagging
+- Successfully isolates instances when manually triggered
+- Implements security group modification and forensic tagging
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%203/10%20Lambda%20function%20that%20will%20change%20the%20instance%20security%20group%20to%20the%20quarantined%20one%20when%20triggered.png)
 
 ### Sandbox Limitations
 EventBridge Triggering Issues:
--Sample GuardDuty findings not consistently delviered to Lambda
--Verified the architecture works with:
-  -Manual Lambda invocation (immediate response)
-  -Direct API calls to EC2
+- Sample GuardDuty findings not consistently delviered to Lambda
+- Verified the architecture works with:
+  - Manual Lambda invocation (immediate response)
+  - Direct API calls to EC2
 
 Production Considerations:
 If these issues were found in production these would be the steps I would take as mitigations until the problem is corrected
--SNS notifications for missed findings, allowing for manual remediation
--CloudWatch alarms for EventBridge delivery metrics, allowing for manual remediation
+- SNS notifications for missed findings, allowing for manual remediation
+- CloudWatch alarms for EventBridge delivery metrics, allowing for manual remediation
 
 ### Compliance Alignment
 - NIST IR-4: Incident handling
@@ -85,9 +85,9 @@ If these issues were found in production these would be the steps I would take a
 ## Validation & Lessons Learned
 ### Implementation Notes:
 While AWS sandbox environments showed limitation with sample finging delivery:
--All components work when properly triggered
--Documented fallback mechanisms ensure reliability
+- All components work when properly triggered
+- Documented fallback mechanisms ensure reliability
 
 ### Lessons Learned
--Always validate automation through manual triggers first
--AWS sandboxes/free tiers may not replicate all production behaviors
+- Always validate automation through manual triggers first
+- AWS sandboxes/free tiers may not replicate all production behaviors
