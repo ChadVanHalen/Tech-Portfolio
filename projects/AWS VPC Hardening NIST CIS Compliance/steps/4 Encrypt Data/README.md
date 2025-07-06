@@ -10,7 +10,7 @@ Implementation of encryption controls for data at rest and in transit, aligned w
   - Supporting: AWS KMS, nginx
 - Key Components:
   - Automated EBS volume encryption
-  - S3 server-side encryption enfrocement
+  - S3 server-side encryption enforcement
   - TLS 1.2+ termination on EC2 instances
 
 # Implementation Walkthrough
