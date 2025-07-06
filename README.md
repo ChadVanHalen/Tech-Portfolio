@@ -3,43 +3,36 @@
 ![DFIR](https://img.shields.io/badge/DFIR-Malware%20Analysis-red)
 
 # Hi, I'm Chad!
-I'm a cybersecurity professional who breaks things methodically—by day as a threat detection specialist, by night as a homelab mad scientist.<br/>
-When I'm not auditing security controls or wrestling with IAM policies at work, you'll find me building cloud defenses and attack simulations to sharpen my skills (and occasionally rage-quitting misconfigured NACLs).<br/><br/>
+Cybersecurity professional with 5+ years in IT and 1+ year in security—currently focused on cloud security and threat detection.
+By day, I audit environments and build detection logic. By night, I experiment in my homelab: automating AWS incident response, deploying honeypots, and occasionally rage-quitting over misconfigured NACLs.
+</br></br>
 
-## What This Repository Shows<br/>
-Projects where I bridge my professional expertise with hands-on experimentation:<br/>
-☁️ Cloud Security: Hardening AWS/Azure environments (with compliance guardrails)<br/>
-🔍 Threat Detection: SIEM deployments, SOC analysis labs, and IDS testing<br/>
-🛠️ Defensive Experiments: Malware analysis, honeypots, and security tooling<br/>
-☁️ Cloud Security: Hardening AWS/Azure environments (with compliance guardrails)<br/>
-## Featured Labs:<br/>
-[AWS VPC Hardening (NIST/CIS compliance)](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance)<br/>
-<br/>
-[SIEM Detection Engineering](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/SIEM%20Honeypot%20Lab)<br/>
-<br/>
-[Azure Security Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Azure%20Creating%20A%20Virtual%20Machine%20and%20Web%20Server)<br/>
-<br/>
-[Malware Analysis Sandbox](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Malware%20Analysis%20Lab)<br/>
-  <br/><br/>
-<h2>👨‍💻 Cybersecurity Projects:</h2>
+## 🧠 What You'll Find Here
+Projects where I bridge hands-on skills with real-world security practice:
+☁️ Cloud Security: AWS & Azure hardening (with NIST/CIS controls)
+🛡️ Threat Detection & SIEM – SOC labs, alert tuning, honeypots
+🔬 Defensive R&D – Malware analysis, automation, packet captures
+</br></br>
 
-- <b>[SOC Analyst Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/SOC%20Analyst%20Lab)</b>
+## 🌟 Featured Projects:
+| Project                                                                                                                                                         | Description                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 🔐 [AWS VPC Hardening (NIST/CIS)](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance)            | Build a secure-by-default AWS environment with automated compliance controls |
+| 📊 [SIEM Honeypot Detection Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/SIEM%20Honeypot%20Lab)                                       | Simulated attacks to test Splunk and ELK-based threat detection              |
+| ☁️ [Azure Web Server Security](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Azure%20Creating%20A%20Virtual%20Machine%20and%20Web%20Server) | Secure Azure VM + NSG configuration lab                                      |
+| 🧬 [Malware Analysis Sandbox](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Malware%20Analysis%20Lab)                                       | Analyze Windows malware behavior in a controlled lab                         |
 
-- <b>[Automation Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Automation%20Lab)</b>
+</br>
 
-- <b>[SIEM Honeypot Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/SIEM%20Honeypot%20Lab)</b>
+## 🧪 Tools & Technologies
+- SIEMs - Splunk, ELK Stack
+- Cloud - AWS, Azure
+- Automation - Lambda, EventBridge, Python
+- Security - Suricata, AWS Security Groups, AWS GuardDuty
+- DFIR - FlareVM, Wireshark, Volatility
+</br></br>
 
-- <b>[IDS Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/IDS%20Lab)</b>
-
-- <b>[Malware Analysis Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Malware%20Analysis%20Lab)</b>
-
-<h2>☁️ Cloud Projects:</h2>
-
-- <b> [AWS - VPC Hardening: NIST & CIS Compliance Implementation](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance)<br/>
-
-- <b> [Azure - Creating A Virtual Machine and Web Server](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Azure%20Creating%20A%20Virtual%20Machine%20and%20Web%20Server)<br/>
-
-<h2> 🤳 Connect with me:</h2>
+## 🤳 Let's Connect:
 
 [<img align="left" alt="JoshMadakor | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
 
