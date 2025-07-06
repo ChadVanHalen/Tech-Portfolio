@@ -47,3 +47,9 @@ Scheduled patching with zero downtime:
 - CIS/NIST Alignmnet: Demonstrates compliance with:
   - CIS 4.4 (Automated Patching)
   - NIST SI-2 (15 remediation SLA)
+
+---
+
+### ▶️ Related: GuardDuty-Based Response to Compromised Instances
+
+While patching helps prevent vulnerabilities, monitoring and response are critical when prevention fails. See [Step 6 – Incident Response Automation & Simulation](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/steps/6%20Simulated%20Detection%20Response/README.md) for a demonstration of real-time threat mitigation.
