@@ -1,4 +1,4 @@
-# AWS Cloud Security LabL NIST & CIS VPC Hardening  
+# AWS Cloud Security Lab: NIST & CIS VPC Hardening  
 
 ## 🔐 Project Overview  
 This project documents my hands-on journey to architect, deploy, and secure an enterprise-grade AWS VPC while aligning with **NIST 800-53** and **CIS AWS Benchmark** security standards.  
