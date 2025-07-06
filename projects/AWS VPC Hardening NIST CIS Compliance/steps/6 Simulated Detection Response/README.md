@@ -1,4 +1,4 @@
-# AWS GuardDuty SSH Brute Force Simulation & Automated Quarantine
+# Incident Response Automation & Simulation
 This section demonstrates a simulated intrusion (SSH brute force) and automated remediation using GuardDuty, EventBridge, and Lambda. Although AWS sandbox environments do not allow real EC2 association with sample findings, a realistic workflow was constructed to show production-ready automation in action.
 
 ## Technical Specifications
