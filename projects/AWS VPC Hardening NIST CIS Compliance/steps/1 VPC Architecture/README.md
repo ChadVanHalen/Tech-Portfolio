@@ -1,4 +1,4 @@
-# AWS - Multisegmented VPC Creation and Hardening
+# VPC Architecture & Network Segmentation
 
 ## Project Overview
 This project demonstrates the creation of a secure, multi-tier VPC architecture in AWS following NIST 800-53 and CIS Benchmark guidelines. The implementation includes network segmentation, access controls, and monitoring to meet enterprise security standards.
