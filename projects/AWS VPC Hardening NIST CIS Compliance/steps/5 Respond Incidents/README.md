@@ -1,4 +1,4 @@
-# AWS - Patch Management & System Hardening
+# Patch Management & System Hardening
 
 ## Project Overview
 Automated security patching aligned with CIS AWS 4.4 and NIST 800-53 SI-2 (Flaw Remediation)
