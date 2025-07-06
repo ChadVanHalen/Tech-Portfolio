@@ -14,14 +14,14 @@ This project demonstrates the creation of a secure, multi-tier VPC architecture 
 Created a VPC with three distinct subnets:
 - Public Subnet: For bastion/jumpbox access
 - Private Subnet: For internal application servers
-- Isolated Subnets: For highly restricted resources like RDS
+- Isolated Subnet: For highly restricted resources like RDS
 
 ![](https://i.postimg.cc/jSkrmj39/01-Create-VPC-within-AWS-with-a-single-public-subnet-and-2-private-subnets.png)
 
 Implemented the following segmentation and access controls:
 - Public subnet: Protected by Security Group allowing SSH (port 22) only from a specific trusted IP to the jumpbox
 - Private subnet: Allows inbound traffic only from the jumpbox's private IP to the app server's private IP (via port 22)
-- RDS Deployment: Placed in two isolated subnets with no internet connectivity
+- RDS Deployment: Placed in two isolated subnets with no internet connectivity. Two subnets allow for high avilability and redundancy.
   - Route tables: Only 10.0.0.0/16 -> local (no NAT or IGW)
   - NACL Rules: Allow only TCP 3306 inbound/outbound from app and jumpbox internal IPs (all other traffic is implicitly denied)
   - RDS Security Group: Accepts port 3306 only from private IPs of the app server and the jumpbox
@@ -68,6 +68,7 @@ Configured VPC Flow Logs with:
 - Secure S3 bucket storage (SSE-S3 encryption)
 - Restricted IAM permissions (least privilege)
 - 7-day lifecycle policy (for cost optimization)
+- The RDS subnet's flow logs show no external egress
 
 ![](https://i.postimg.cc/261THdN5/12-Creating-an-S3-bucket-to-store-flow-logs-on-the-VPC.png)
 
@@ -80,3 +81,6 @@ Configured VPC Flow Logs with:
 - Successfully implemented enterprise-grade network segmentation
 - Demonstrated practical application of NIST/CIS controls
 - Established foundation for subsequent security hardening phases
+
+---
+▶️ Learn more about incident response automation in [Step 6 – Incident Response Automation & Simulation](../6%20GuardDuty%20Response%20Automation/README.md).
