@@ -1,4 +1,4 @@
-# AWS VPC Data Protection & Encryption Implementation
+# Data Protection & Encryption
 
 ## Project Overview
 Implementation of encryption controls for data at rest and in transit, aligned with NIST 800-171 (Protecting CUI) and CIS AWS Foundations Benchmark. Validated through hands-on testing with AWS-native services and open-source tools.
