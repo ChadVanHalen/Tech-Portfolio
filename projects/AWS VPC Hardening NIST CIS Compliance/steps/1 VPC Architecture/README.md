@@ -26,7 +26,7 @@ Created a VPC with three distinct subnets:
 Deployed a bastion host in the public subnet with:
 - Restricted SSH access (single IP whitelist)
 - Key-based authentication
-- Implicit deny-all NACL policy
+- Implicit deny-all NACL and Security Group policies
 
 ![](https://i.postimg.cc/L5RdLghq/03-Creating-a-jumpbox-server-using-security-controls-to-only-allow-SSH-via-my-IP.png)
 
@@ -36,7 +36,7 @@ Deployed a bastion host in the public subnet with:
 
 ## 3. Private Server Deployment
 Configured an application server in the private subnet with:
-- NACL rules restricting access to jumpbox only
+- NACL and Security Group rules restricting access to jumpbox only
 - No public IP assignment
 - Verification of network isolation
 
