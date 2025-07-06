@@ -34,7 +34,7 @@ Enabled encryption-by-default for all new EBS volumes using AWS KMS
 - NIST 800-171 3.13.16: Encryption at rest
 - CIS AWS 2.2.1: EBS default encryption
 
-## S3 Bucket Encryption Enforcement
+## 2. S3 Bucket Encryption Enforcement
 Configured server-side encryption (SSE-KMS) for all objects in a demo S3 bucket
 
 ### Process
@@ -48,7 +48,7 @@ Configured server-side encryption (SSE-KMS) for all objects in a demo S3 bucket
 - NIST 800-53 SC-28: Protection of information at rest
 - CIS AWS 2.1.1: S3 bucket encryption
 
-## TLS Implementation on EC2 (HTTPS)
+## 3. TLS Implementation on EC2 (HTTPS)
 Attempted Let's Encrypt certificate employment, with self-signed fallback for demonstration
 
 ### Process
@@ -70,6 +70,24 @@ Attempted Let's Encrypt certificate employment, with self-signed fallback for de
 ### Compliance Alignment
 - NIST 800-53 SC-8: Transmission confidentiality
 - CIS AWS 2.3: TLS-enabled connections
+
+## 4. CloudTrail KMS Key Management
+A customer-managed AWS KMS key was created to secure CloudTrail logs within S3, ensuring centralized log data is encrypted at rest and tightly access controlled
+
+### Process
+1. Created a customer-managed KMS key with:
+   - Key rotation enabled
+   - IAM policy granting access only to logging roles and a designated admin role
+2. Applied the key to the CloudTrail logging configuration:
+   - Enabled encryption using the KMS key for all trail log files
+   - Ensured S3 bucket used for logs also had SSE enabled
+
+![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%204/10%20Enabled%20key%20rotation%20in%20KMS.png)
+
+### Compliance Alighment
+- NIST 800-53 SC-12: Cryptographic Key Establishment
+- NIST 800-53 AU-9: Protection of Audit Information
+- CIS AWS Benchmark 2.1.3: CloudTrail Log File Encryption
 
 ## Validation and Lessons Learned
 ### Working Components
