@@ -1,4 +1,6 @@
 # Incident Response Automation & Simulation
+
+## Project Overview
 This section demonstrates a simulated intrusion (SSH brute force) and automated remediation using GuardDuty, EventBridge, and Lambda. Although AWS sandbox environments do not allow real EC2 association with sample findings, a realistic workflow was constructed to show production-ready automation in action.
 
 ## Technical Specifications
@@ -12,6 +14,7 @@ This section demonstrates a simulated intrusion (SSH brute force) and automated 
   - Manual payload simulation to validate automation flow
 
 # Implementation Walkthrough
+
 ## 1. Architecture Overview
 - GuardDuty: Monitors for brute force SSH attempts
 - EventBridge: Captures matching GuardDuty findings, then triggers an action
@@ -60,7 +63,7 @@ def lambda_handler(event, context):
 ```
 
 ## 4. Simulating the Findings & Triggering Quarantine
-Since actual brute force attempts failed to trigger GuardDuty in sandbox, the following simulatino was performed:
+Since actual brute force attempts failed to trigger GuardDuty in sandbox, the following simulation was performed:
 
 1. Create Sample Findings (CLI):
 ```bash
@@ -107,3 +110,7 @@ To simulate full end-to-end functionality, a test event payload was manually inj
 ### Production Recommendations
 - Implement fallback: CloudWatch alarm on failed EventBridge deliveries
 - Consider backup workflow using AWS Config or CloudTrail findings for assurance
+
+### Compliance Alignment
+- NIST IR-4: Incident Response
+- CIS AWS 4.5: Automated Threat Response
