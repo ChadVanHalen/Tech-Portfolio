@@ -6,7 +6,7 @@ Welcome to the full list of my hands-on security projects. These labs reflect my
 
 ## 🌟 Featured Project
 
-### 🔐 [AWS VPC Hardening: NIST & CIS Compliance Implementation](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/README.md)
+### 🔐 [AWS Cloud Security LabL NIST & CIS VPC Hardening](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/README.md)
 
 A complete end-to-end AWS security lab designed around industry frameworks (NIST 800-53 & CIS Benchmarks).  
 ✅ IAM least-privilege roles  
