@@ -37,14 +37,14 @@ Verified hardening via:
 
 ## 4. Maintenance Window Automation
 Scheduled patching with zero downtime:
-- CRON chedule of cron(0 2 ? * SUN *) - Weekly on Sunday at 2 AM UTC 
+- CRON schedule of cron(0 2 ? * SUN *) - Weekly on Sunday at 2 AM UTC 
 - Task: AWS-RunPatchBaseline with reboot if required
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%205/4%20I%20create%20a%20Maintenance%20Window%20that%20will%20run%20the%20AutoPatchBaseline%20task%20every%20Sunday%20at%202%20am.png)
 
 # Key Takeaways
 - Proactive Vulnerability Management: Reduces exposure window for critical flaws
-- CIS/NIST Alignmnet: Demonstrates compliance with:
+- CIS/NIST Alignment: Demonstrates compliance with:
   - CIS 4.4 (Automated Patching)
   - NIST SI-2 (15 remediation SLA)
 
