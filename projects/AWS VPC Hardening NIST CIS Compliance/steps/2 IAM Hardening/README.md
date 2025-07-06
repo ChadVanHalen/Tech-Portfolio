@@ -27,7 +27,7 @@ Created emergency access account with:
 - CIS 1.1-1.2: Restrict root account use and enforce MFA
 
 ## 2. Password Enforcement Policy
-Configured IAMs role for compliance with NIST & CIS password complexity requirements:
+Configured IAM role for compliance with NIST & CIS password complexity requirements:
 - Minimum password length - 14
 - Required symbols, numbers, uppercase, and lowercase characters
 - Max password age - 90 days
@@ -55,7 +55,7 @@ Enabled three critical rules:
 - iam-password-policy
 - iam-user-mfa-enabled
 - iam-no-inline-policy
-Note: Root account falsely flagged as non-compliant (Knwon AWS behavior)
+Note: Root account falsely flagged as non-compliant (This is known AWS behavior, the password policy is only for IAM accounts, and Root is not considered an IAM account)
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%202/13%203%20IAMs%20compliance%20rules%20established%20within%20AWS%20Config.png)
 
