@@ -1,4 +1,4 @@
-# AWS VPC Monitoring with GuardDuty & Attack Simulation
+# Threat Detection & Continuous Monitoring
 
 ## Project Overview
 Implementation of continuous monitoring and incident detection capabilities following NIST 800-53 and CIS Benchmark guidelines, validating both detection and response workflows in a cost-optimized sandbox environment.
