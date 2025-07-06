@@ -48,13 +48,6 @@ Conducted three attack scenarios:
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%203/8%20From%20my%20jumpbox%20to%20my%20private%20server%20I%20run%20some%20ncat%20port%20scans.png)
 
-- **Malware Detection Test**
-  - Command:
-    ```bash
-    echo 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-TEST-FILE!$H+H*' > /tmp/eicar.txt
-    ```
-  - Expected detection: `Backdoor:EC2/FileHash.B*`
-
 #### Sandbox Limitations
 Due to free-tier limitations, certain findings were not triggered or delayed. For demonstration, AWS sample findings were used:
 ```bash
