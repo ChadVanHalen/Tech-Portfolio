@@ -14,9 +14,19 @@ This project demonstrates the creation of a secure, multi-tier VPC architecture 
 Created a VPC with three distinct subnets:
 - Public Subnet: For bastion/jumpbox access
 - Private Subnet: For internal application servers
-- Isolated Subnet: For highly restricted resources
+- Isolated Subnet: For highly restricted resources like RDS
 
 ![](https://i.postimg.cc/jSkrmj39/01-Create-VPC-within-AWS-with-a-single-public-subnet-and-2-private-subnets.png)
+
+Implemented the following segmentation and access controls:
+- Jumpbox subnet: Protected by Security Group allowing SSH (port 22) only from a specific trusted IP
+- Application subnet: Allows inbound traffic only from the jumpbox's private IP (via port 22)
+- RDS Deployment: Placed in two isolated subnets with no internet connectivity
+  - Route tables: Only 10.0.0.0/16 -> local (no NAT or IGW)
+  - NACL Rules: Allow only TCP 3306 inbound/outbound from app and jumpbox internal IPs (all other traffic is implicitly denied)
+  - RDS Security Group: Accepts port 3306 only from private IPs of the app server and the jumpbox
+
+![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%201/16%20RDS%20Isolated%20Subnets%20NACLs.png)
 
 ### Compliance Alignment:
 - NIST 800-53 AC-4 (Information Flow Enforcement)
