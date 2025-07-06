@@ -1,4 +1,4 @@
-# AWS - IAM Hardening with NIST & CIS Compliance
+# IAM Hardening & Identity Governance
 
 ## Project Overview
 Implementation of identity and access management controls following NIST 800-53 and CIS Benchmark guidelines. The hardening process includes break-glass admin creation, least-privilege roles, and audit logging to meet enterprise security standards.
