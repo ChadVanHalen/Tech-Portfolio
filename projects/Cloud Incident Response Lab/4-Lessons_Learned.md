@@ -72,4 +72,3 @@ This exercise provided hands-on experience with:
 - Automate remediation with **Lambda** triggered by GuardDuty findings
 - Add detection scenarios for **S3 data exfiltration** or **IAM privilege escalation**
 - Include alerts for non-compliant IAM configurations using **AWS Config Rules**
-
