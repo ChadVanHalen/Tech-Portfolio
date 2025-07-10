@@ -1,0 +1,190 @@
+{
+    "eventVersion": "1.10",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAXCPNE63HMEACDK5U3",
+        "arn": "arn:aws:iam::486365525710:user/crypto-actor",
+        "accountId": "486365525710",
+        "accessKeyId": "AKIAXCPNE63HE5KTLXVO",
+        "userName": "crypto-actor"
+    },
+    "eventTime": "2025-07-09T22:26:23Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "RunInstances",
+    "awsRegion": "us-east-2",
+    "sourceIPAddress": "18.116.35.29",
+    "userAgent": "aws-cli/2.27.42 md/awscrt#0.26.1 ua/2.1 os/linux#6.1.141-155.222.amzn2023.x86_64 md/arch#x86_64 lang/python#3.13.4 md/pyimpl#CPython exec-env/CloudShell m/E cfg/retry-mode#standard md/installer#exe md/distrib#amzn.2023 md/prompt#off md/command#ec2.run-instances",
+    "requestParameters": {
+        "instancesSet": {
+            "items": [
+                {
+                    "imageId": "ami-0133f9d4af72da4d0",
+                    "minCount": 1,
+                    "maxCount": 1,
+                    "keyName": "JumpboxTestKey"
+                }
+            ]
+        },
+        "groupSet": {
+            "items": [
+                {
+                    "groupName": "default"
+                }
+            ]
+        },
+        "instanceType": "t2.micro",
+        "blockDeviceMapping": {},
+        "monitoring": {
+            "enabled": false
+        },
+        "disableApiTermination": false,
+        "disableApiStop": false,
+        "clientToken": "01a11bb5-ad16-4e32-8bd0-0095a389a7a2"
+    },
+    "responseElements": {
+        "requestId": "dcc7c550-486a-491f-a0bc-2541444e630d",
+        "reservationId": "r-04fef014b2888acfe",
+        "ownerId": "486365525710",
+        "groupSet": {},
+        "instancesSet": {
+            "items": [
+                {
+                    "instanceId": "i-0352761c1d073a1a6",
+                    "imageId": "ami-0133f9d4af72da4d0",
+                    "currentInstanceBootMode": "legacy-bios",
+                    "instanceState": {
+                        "code": 0,
+                        "name": "pending"
+                    },
+                    "privateDnsName": "ip-172-31-47-82.us-east-2.compute.internal",
+                    "keyName": "JumpboxTestKey",
+                    "operator": {
+                        "managed": false
+                    },
+                    "amiLaunchIndex": 0,
+                    "productCodes": {},
+                    "instanceType": "t2.micro",
+                    "launchTime": 1752099982000,
+                    "placement": {
+                        "availabilityZone": "us-east-2c",
+                        "tenancy": "default"
+                    },
+                    "monitoring": {
+                        "state": "disabled"
+                    },
+                    "subnetId": "subnet-02e82a58567aeb589",
+                    "vpcId": "vpc-0d7fc3a7d107f54de",
+                    "privateIpAddress": "172.31.47.82",
+                    "stateReason": {
+                        "code": "pending",
+                        "message": "pending"
+                    },
+                    "architecture": "x86_64",
+                    "rootDeviceType": "ebs",
+                    "rootDeviceName": "/dev/xvda",
+                    "blockDeviceMapping": {},
+                    "virtualizationType": "hvm",
+                    "hypervisor": "xen",
+                    "clientToken": "01a11bb5-ad16-4e32-8bd0-0095a389a7a2",
+                    "groupSet": {
+                        "items": [
+                            {
+                                "groupId": "sg-01465ffa7da57cd2a",
+                                "groupName": "default"
+                            }
+                        ]
+                    },
+                    "sourceDestCheck": true,
+                    "networkInterfaceSet": {
+                        "items": [
+                            {
+                                "networkInterfaceId": "eni-0076a5932536e5ae3",
+                                "subnetId": "subnet-02e82a58567aeb589",
+                                "vpcId": "vpc-0d7fc3a7d107f54de",
+                                "ownerId": "486365525710",
+                                "operator": {
+                                    "managed": false
+                                },
+                                "status": "in-use",
+                                "macAddress": "0a:73:7d:16:42:af",
+                                "privateIpAddress": "172.31.47.82",
+                                "privateDnsName": "ip-172-31-47-82.us-east-2.compute.internal",
+                                "sourceDestCheck": true,
+                                "interfaceType": "interface",
+                                "groupSet": {
+                                    "items": [
+                                        {
+                                            "groupId": "sg-01465ffa7da57cd2a",
+                                            "groupName": "default"
+                                        }
+                                    ]
+                                },
+                                "attachment": {
+                                    "attachmentId": "eni-attach-0a5a77520055c5e34",
+                                    "deviceIndex": 0,
+                                    "networkCardIndex": 0,
+                                    "status": "attaching",
+                                    "attachTime": 1752099982000,
+                                    "deleteOnTermination": true
+                                },
+                                "privateIpAddressesSet": {
+                                    "item": [
+                                        {
+                                            "privateIpAddress": "172.31.47.82",
+                                            "privateDnsName": "ip-172-31-47-82.us-east-2.compute.internal",
+                                            "primary": true
+                                        }
+                                    ]
+                                },
+                                "ipv6AddressesSet": {},
+                                "tagSet": {}
+                            }
+                        ]
+                    },
+                    "ebsOptimized": false,
+                    "enaSupport": true,
+                    "cpuOptions": {
+                        "coreCount": 1,
+                        "threadsPerCore": 1
+                    },
+                    "capacityReservationSpecification": {
+                        "capacityReservationPreference": "open"
+                    },
+                    "enclaveOptions": {
+                        "enabled": false
+                    },
+                    "metadataOptions": {
+                        "state": "pending",
+                        "httpTokens": "optional",
+                        "httpPutResponseHopLimit": 1,
+                        "httpEndpoint": "enabled",
+                        "httpProtocolIpv4": "enabled",
+                        "httpProtocolIpv6": "disabled",
+                        "instanceMetadataTags": "disabled"
+                    },
+                    "maintenanceOptions": {
+                        "autoRecovery": "default",
+                        "rebootMigration": "default"
+                    },
+                    "privateDnsNameOptions": {
+                        "hostnameType": "ip-name",
+                        "enableResourceNameDnsARecord": false,
+                        "enableResourceNameDnsAAAARecord": false
+                    }
+                }
+            ]
+        }
+    },
+    "requestID": "dcc7c550-486a-491f-a0bc-2541444e630d",
+    "eventID": "15c9d6bc-36d4-4e82-b643-e4b053c89164",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "486365525710",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ec2.us-east-2.amazonaws.com"
+    }
+}
