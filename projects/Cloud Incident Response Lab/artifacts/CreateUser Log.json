@@ -1,0 +1,47 @@
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "Root",
+        "principalId": "486365525710",
+        "arn": "arn:aws:iam::486365525710:root",
+        "accountId": "486365525710",
+        "accessKeyId": "ASIAXCPNE63HPO5TI43C",
+        "sessionContext": {
+            "attributes": {
+                "creationDate": "2025-07-09T21:08:15Z",
+                "mfaAuthenticated": "true"
+            }
+        }
+    },
+    "eventTime": "2025-07-09T21:17:58Z",
+    "eventSource": "iam.amazonaws.com",
+    "eventName": "CreateUser",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "71.195.235.59",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "requestParameters": {
+        "userName": "crypto-actor"
+    },
+    "responseElements": {
+        "user": {
+            "path": "/",
+            "userName": "crypto-actor",
+            "userId": "AIDAXCPNE63HMEACDK5U3",
+            "arn": "arn:aws:iam::486365525710:user/crypto-actor",
+            "createDate": "Jul 9, 2025, 9:17:58 PM"
+        }
+    },
+    "requestID": "6a8f9681-dc24-4327-9b31-25e47fdd4211",
+    "eventID": "9e71fddb-d309-4b9f-8a3d-9661777a77e7",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "486365525710",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "iam.amazonaws.com"
+    },
+    "sessionCredentialFromConsole": "true"
+}
