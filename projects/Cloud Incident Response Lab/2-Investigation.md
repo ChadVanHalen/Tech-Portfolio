@@ -1,4 +1,4 @@
-# 🔍 Investigation Report
+# 🔍 Chapter 2: Investigation Report
 
 ## Summary
 GuardDuty detected that an EC2 instance made DNS queries to a known crypto mining domain (`xmr.crypto-pool.fr`). The instance was launched by a compromised IAM user (`crypto-actor`) with excessive permissions.
