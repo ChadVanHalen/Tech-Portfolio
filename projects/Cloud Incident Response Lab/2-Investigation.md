@@ -1,96 +1,44 @@
-🕵️ Step 2: Investigation
-🎯 Objective
-Investigate the GuardDuty alert using:
+# 🔍 Investigation Report
 
-GuardDuty finding details
+## Summary
+GuardDuty detected that an EC2 instance made DNS queries to a known crypto mining domain (`xmr.crypto-pool.fr`). The instance was launched by a compromised IAM user (`crypto-actor`) with excessive permissions.
 
-CloudTrail logs
+## 📆 Timeline of Events (All times in MDT)
+- **15:17** – IAM user `crypto-actor` was created and granted AdministratorAccess
+- **15:19** – Access key was created for the user
+- **16:26** – Attacker (via compromised keys) launched a t2.micro EC2 instance in us-east-2
+- **~16:30–16:45** – Suspicious activity simulated from the EC2 instance (DNS to crypto mining domain)
+- **17:02** – GuardDuty generated a finding: EC2 queried a Bitcoin-related domain (`xmr.crypto-pool.fr`)
 
-IAM activity
+## Findings
 
-EC2 instance metadata (if needed)
+### GuardDuty
+- **Finding Type:** CryptoCurrency:EC2/BitcoinTool.B!DNS
+- **Instance ID:** i-0123456789abcdef0
+- **Domain Queried:** xmr.crypto-pool.fr
+- **Source IP:** `18.220.214.60`
 
-🧭 Investigation Flow
-✅ 1. Start with the GuardDuty Finding
-Go to GuardDuty > Findings, click on the crypto alert, and collect the following:
+### CloudTrail
+- **RunInstances call** by `crypto-actor`
+- **Source IP:** `18.116.35.29`
+- **Region:** us-east-2
 
-⛳ Key Fields to Document:
-Field	Description
-Finding Type	Should be CryptoCurrency:EC2/BitcoinTool.B!DNS
-Resource ID	EC2 instance ID
-Account ID	Your AWS account number
-Region	Should be us-east-2
-Instance Details	Includes public IP, tags, and launch time
-Action	Should show DnsRequestAction and queried domain (e.g., xmr.crypto-pool.fr)
-Time of Finding	Time GuardDuty flagged the activity
-Severity	Likely "Medium" or "High"
-Threat Purpose	"Unauthorized resource usage"
+### IAM
+- `crypto-actor` created and given AdministratorAccess
+- Access key used for CLI access and EC2 launch
 
-📝 Save this as a JSON file or screenshot for documentation.
+## Initial Assessment
+The attack vector appears to be:
+1. Over-permissioned IAM user
+2. Credential exposure (possibly hardcoded or leaked)
+3. Attacker launched an EC2 instance to mine crypto
 
-✅ 2. Use CloudTrail to Trace Initial Compromise
-Go to CloudTrail > Event history and filter:
+## 📦 Artifacts Collected
 
-plaintext
-Copy
-Edit
-Event source: ec2.amazonaws.com
-Event name: RunInstances
-Username: crypto-actor
-Look for the RunInstances call from the over-permissioned IAM user.
-
-⛳ Key Fields:
-Field	Value
-Event time	When EC2 was launched
-Source IP	Should reflect the VPN (foreign IP)
-User identity	Should show the crypto-actor IAM user
-Region	Should be us-east-2
-Request parameters	AMI, instance type, key name
-Response elements	Instance ID (i-xxxxxxxxxxxxx)
-
-📝 Export or copy the log entry to your artifacts folder.
-
-✅ 3. Investigate IAM Access
-Still in CloudTrail, search for:
-
-plaintext
-Copy
-Edit
-Event name: CreateAccessKey
-Username: crypto-actor
-Then:
-
-plaintext
-Copy
-Edit
-Event name: AttachUserPolicy or PutUserPolicy
-Username: crypto-actor
-⛳ What you’re confirming:
-Who created the crypto-actor IAM user and when
-
-Whether AdministratorAccess was attached manually
-
-Any suspicious policy changes or console logins
-
-📝 Document this timeline:
-
-IAM user created
-
-Access key generated
-
-Permissions granted
-
-EC2 instance launched
-
-GuardDuty alert triggered
-
-✅ 4. Optional: Check EC2 Metadata (Advanced Attribution)
-If you want to simulate deeper attacker behavior, SSH back into the EC2 instance and run:
-
-bash
-Copy
-Edit
-curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
-This shows what credentials the instance has — if an attacker exfiltrated this and used it elsewhere, GuardDuty would raise an InstanceCredentialExfiltration alert.
-
-For now, it’s just useful to understand what IAM role or profile (if any) the instance has.
+| File | Description |
+|------|-------------|
+| [`guardduty_finding.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/Crytpocurrency%20GuardDuty%20Finding.json) | Raw JSON of GuardDuty alert showing crypto mining detection |
+| [`cloudtrail_runinstances.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/CloudTrail%20RunInstance%20Event.json) | CloudTrail log showing EC2 launch by compromised user |
+| [`cloudtrail_createuser.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/CreateUser%20Log.json) | Log of IAM user `crypto-actor` being created |
+| [`cloudtrail_createaccesskey.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/Create%20Access%20Key%20Log.json) | Log of access key creation for `crypto-actor` |
+| [`cloudtrail_attachuserpolicy.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/AttachUserPolicy%20Log.json) | Log showing attachment of `AdministratorAccess` policy |
