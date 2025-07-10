@@ -27,12 +27,12 @@ This guide is adapted from the simulated incident documented in Chapters 1–4.
 ### 1. 🔴 Stop or Terminate the EC2 Instance
 
 ```bash
-aws ec2 stop-instances --instance-ids i-0123456789abcdef
+aws ec2 stop-instances --instance-ids i-0352761c1d073a1a6
 ```
 
 Or for complete removal:
 ```bash
-aws ec2 terminate-instances --instance-ids i-0123456789abcdef
+aws ec2 terminate-instances --instance-ids i-0352761c1d073a1a6
 ```
 
 ### 2. 🚫 Disable the Compromised Access Key
@@ -71,7 +71,7 @@ You can document and timestamp actions using a simple log like this:
 
 ```text
 [2025-07-09 17:02 MDT] GuardDuty Finding triggered: BitcoinTool.B!DNS
-[2025-07-09 17:08 MDT] Confirmed instance i-0123456789abcdef launched by user crypto-actor
+[2025-07-09 17:08 MDT] Confirmed instance i-0352761c1d073a1a6 launched by user crypto-actor
 [2025-07-09 17:10 MDT] Terminated EC2 instance
 [2025-07-09 17:11 MDT] Disabled access key AKIA...
 [2025-07-09 17:13 MDT] Detached Admin policy from IAM user
