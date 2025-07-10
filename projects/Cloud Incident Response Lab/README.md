@@ -1,8 +1,8 @@
 # 🛡️ Cloud Incident Response Lab (AWS)
 
 ## Overview
-This lab simulates a realistic AWS security breach scenario and guides you through a structured cloud incident response process.  
-The objective is to demonstrate how to **detect, investigate, contain, and remediate** a security incident in AWS using native services, logs, and best practices.
+This lab simulates a realistic AWS security breach scenario and guides you through a structured cloud incident response process.
+The objective is to demonstrate how to detect, investigate, contain, and remediate a security incident in AWS using native services, logs, and best practices.
 
 ---
 
@@ -23,23 +23,27 @@ A compromised, over-permissioned IAM user (`crypto-actor`) is leveraged to launc
 
 ## 🧭 Lab Steps
 
-| Step | Description |
-|---|---|
-| 1 | **Simulate the Incident:** Create misconfigured IAM users with excessive permissions and simulate suspicious behavior such as launching EC2 instances from foreign IPs. |
-| 2 | **Investigate:** Use GuardDuty findings, CloudTrail logs, and IAM activity history to trace the breach timeline and identify attack vectors. |
-| 3 | **Contain & Remediate:** Terminate unauthorized EC2 instances, disable compromised credentials, and apply least privilege IAM policies. |
-| 4 | **Lessons Learned:** Summarize findings and create actionable recommendations for preventing future incidents. |
+| Step | Description                                                                                                                                                             |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | **Simulate the Incident:** Create misconfigured IAM users with excessive permissions and simulate suspicious behavior such as launching EC2 instances from foreign IPs. |
+| 2    | **Investigate:** Use GuardDuty findings, CloudTrail logs, and IAM activity history to trace the breach timeline and identify attack vectors.                            |
+| 3    | **Contain & Remediate:** Terminate unauthorized EC2 instances, disable compromised credentials, and apply least privilege IAM policies.                                 |
+| 4    | **Lessons Learned:** Summarize findings and create actionable recommendations for preventing future incidents.                                                          |
+| 5    | **Response Playbook:** Document a reusable, step-by-step response guide for handling similar AWS breaches.                                                              |
+
 
 ---
 
 ## 📄 Project Files
 
-| File | Description |
-|---|---|
-| [Chapter 1: Incident Simulation – Unauthorized EC2 Launch for Crypto Mining](./1-Incident_Simulation.md) | Walkthrough of simulating the cloud breach scenario. |
-| [Chapter 2: Investigation Report](./2-Investigation.md) | Step-by-step investigation using GuardDuty and CloudTrail logs. |
-| [Chapter 3: Containment and Remediation](./3-Containment_and_Remediation.md) | Incident containment and remediation actions. |
-| [Chapter 4: Lessons Learned](./4-Lessons_Learned.md) | Summary of the incident, lessons learned, and security recommendations. |
+| File                                                                                                     | Description                                                             |
+| -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [Chapter 1: Incident Simulation – Unauthorized EC2 Launch for Crypto Mining](./1-Incident_Simulation.md) | Walkthrough of simulating the cloud breach scenario.                    |
+| [Chapter 2: Investigation Report](./2-Investigation.md)                                                  | Step-by-step investigation using GuardDuty and CloudTrail logs.         |
+| [Chapter 3: Containment and Remediation](./3-Containment_and_Remediation.md)                             | Incident containment and remediation actions.                           |
+| [Chapter 4: Lessons Learned](./4-Lessons_Learned.md)                                                     | Summary of the incident, lessons learned, and security recommendations. |
+| [Chapter 5: Response Playbook](./5-Response_Playbook.md)                                                 | Reusable playbook for responding to unauthorized EC2 launches in AWS.   |
+
 
 ---
 
@@ -51,7 +55,8 @@ All key actions—including IAM user creation, EC2 launches, GuardDuty findings,
 ## 📈 Outcome
 - Completed an end-to-end AWS cloud incident response simulation  
 - Gained practical experience with AWS native security tooling (IAM, CloudTrail, GuardDuty)  
-- Developed documentation and evidence artifacts suitable for IR training and audit  
+- Developed documentation and evidence artifacts suitable for IR training and audit
+- Created a reusable cloud IR playbook for future use and automation  
 
 ---
 
