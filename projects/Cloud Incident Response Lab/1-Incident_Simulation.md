@@ -1,90 +1,67 @@
-# Simulating a Cloud Incident: Unauthorized EC2 Launch (Crypto Mining)
+# 🛡️ Chapter 1: Incident Simulation – Unauthorized EC2 Launch for Crypto Mining
 
 ## 🎯 Objective
-Simulate a common AWS breach scenario: a compromised IAM user account launches unauthorized EC2 instances to perform crypto mining. This step sets the stage for practicing cloud incident response using native AWS tools.
+Simulate a common cloud security incident: an over-permissioned IAM user’s credentials are compromised and are used to launch an EC2 instance for unauthorized cryptocurrency mining.
+This simulation sets the stage for detection, investigation, and response using AWS tools.
 
-## 🛠️ Setup Overview
-| Component                           | Purpose                                       |
-| ----------------------------------- | --------------------------------------------- |
-| IAM user with excessive permissions | Simulate misconfigured least privilege        |
-| EC2 instance                        | Used to simulate crypto mining workload       |
-| AWS CloudTrail                      | Capture all activity for investigation        |
-| GuardDuty                           | Detect suspicious activity and raise findings |
+---
 
+## 🛠️ Simulation Steps
 
-## 🧪 Simulation Steps
-### ✅ 1. Create a Vulnerable IAM User
-Go to IAM > Users > Add user
+### 1. Create Vulnerable IAM User
+- Created an IAM user named **crypto-actor**
+- Granted **AdministratorAccess** to simulate poor least-privilege practices
+- Created and recorded **programmatic access keys**
 
-Username: crypto-actor
+![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/1%20Create%20an%20intentionally%20over-provisioned%20IAM%20account.png)
 
-Select Programmatic access
+---
 
-Attach AdministratorAccess policy (simulate over-permissioning)
+### 2. Use Compromised Credentials to Launch EC2 Instance
+- Used AWS CLI (`aws configure`) with the compromised access keys
+- Launched a **t2.micro EC2 instance** using:
+  - AMI ID: `ami-0fc5d935ebf8bc3bc`
+  - Security Group: default
 
-Create access keys (record temporarily for simulation)
+![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/3%20Using%20that%20IAM%20account's%20elevated%20access%20I%20spin%20up%20a%20new%20EC2%20instance.png)
 
-💡 You’ll delete these after the simulation!
+---
 
-### 💻 2. Simulate a Breach: Use Access Keys to Launch EC2 Instances
-Using AWS CLI with the IAM access keys:
+### 3. Wait for GuardDuty Alert
+- Initially, **no findings were triggered**
+- Confirmed **GuardDuty** was enabled in **`us-east-2`**
+- Verified **CloudTrail was multi-region and active**
 
+---
+
+### 4. Simulate Suspicious Activity from EC2
+- SSH’d into the EC2 instance using its public IP and key pair
+- Executed DNS queries to known crypto mining domain:
+  
 ```bash
-aws configure
-# Enter access key, secret key, and region (e.g., us-east-1)
+# 20 DNS queries to a known crypto mining pool
+for i in {1..20}; do
+  nslookup xmr.crypto-pool.fr
+  sleep 5
+done
 
-# Launch an EC2 instance (e.g., t2.micro to stay within free tier)
-aws ec2 run-instances \
-  --image-id ami-0c02fb55956c7d316 \
-  --count 1 \
-  --instance-type t2.micro \
-  --key-name YourKeyPairName \
-  --security-groups default
-```
-> 🛑 This action will show up in CloudTrail and (eventually) in GuardDuty.
-
-### ⚠️ 3. Optional: Simulate a Suspicious IP Location
-If you want to simulate access from a foreign or suspicious IP:
-
-Use a VPN to a non-local country
-
-Or manually tag the activity as "external access" during write-up
-
-### 🕵️ 4. Let GuardDuty Detect the Activity
-GuardDuty findings may include:
-
-UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration
-
-CryptoCurrency:EC2/BitcoinTool.B!DNS
-
-Wait ~15 minutes for findings to populate.
-If needed, enable GuardDuty under: Security > Amazon GuardDuty
-
-### 🧼 5. Clean Up
-Terminate the EC2 instance:
-```bash
-aws ec2 terminate-instances --instance-ids i-xxxxxxxxxxxxx
+# Simulate metadata scraping
+curl http://169.254.169.254/latest/meta-data/
 ```
 
-Delete the IAM user:
-```bash
-aws iam delete-user --user-name crypto-actor
-```
+![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/4%20After%20no%20findings%20are%20caught%20I%20log%20into%20the%20newly%20created%20account%20and%20start%20running%20suspicious%20crypto-related%20commands.png)
 
-Remove local credentials file:
-```bash
-rm ~/.aws/credentials
-```
+---
 
-### 📌 Artifacts to Save
-CloudTrail log snippet of EC2 launch
+#### 5. Detection by GuardDuty
+- After ~30 minutes, GuardDuty generated a finding:
+  - Type: `CryptoCurrency:EC2/BitcoinTool.B!DNS`
+  - Severity: `HIGH`
+  - Description: The EC2 instance `i-0352761c1d073a1a6` is querying a domain name that is associated with Bitcoin-related activity.
 
-GuardDuty alert JSON or screenshot
+![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/5%20We%20find%20a%20BitCoin%20related%20finding%20flagged%20in%20GuardDuty.png)
 
-IAM access key creation log
+[GuardDuty_Finding.json](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/Crytpocurrency%20GuardDuty%20Finding.json)
 
-Save these in the artifacts/ folder for the investigation step.
 
-## 🚨 Ethics Reminder
-This lab is for educational and simulation purposes only.
-Never run actual mining software or generate malicious traffic on AWS.
+
