@@ -24,6 +24,8 @@ A complete end-to-end AWS security lab designed around industry frameworks (NIST
 |--------|-------------|
 | [AWS VPC Hardening](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/README.md) | (Featured) AWS security lab aligned with NIST & CIS controls |
 | [Azure Web Server Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Azure%20Creating%20A%20Virtual%20Machine%20and%20Web%20Server/README.md) | Create and secure a VM in Azure with firewall and NSG rules |
+| [AWS Cloud Incident Response Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Cloud%20Incident%20Response%20Lab) | Simulated crypto mining attack with detection, investigation, and remediation |
+| [Terraform S3 Misconfiguration Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Terraform%20S3%20Misconfiguration%20Lab) | IaC security lab using Terraform to deploy and fix insecure S3 buckets |
 
 ---
 
