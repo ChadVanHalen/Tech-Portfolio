@@ -42,3 +42,8 @@ The attack vector appears to be:
 | [`cloudtrail_createuser.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/CreateUser%20Log.json) | Log of IAM user `crypto-actor` being created |
 | [`cloudtrail_createaccesskey.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/Create%20Access%20Key%20Log.json) | Log of access key creation for `crypto-actor` |
 | [`cloudtrail_attachuserpolicy.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/AttachUserPolicy%20Log.json) | Log showing attachment of `AdministratorAccess` policy |
+
+---
+
+⬅️ [Back to Chapter 1: Incident Simulation](./1-Incident_Simulation.md)
+➡️ [Continue to Chapter 3: Containment & Remediation »](./3-Containment_and_Remediation.md)
