@@ -60,3 +60,8 @@ The unauthorized activity was successfully:
 - Remediated by enforcing IAM hardening practices and improving detection posture
 
 These steps reflect standard incident response practices in a cloud environment and build a foundation for automated response in future improvements.
+
+---
+
+⬅️ [Back to Chapter 2: Investigation](./2-Investigation.md)
+➡️ [Continue to Chapter 4: Lessons Learned »](./4-Lessons_Learned.md)
