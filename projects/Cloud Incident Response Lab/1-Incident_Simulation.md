@@ -65,4 +65,4 @@ curl http://169.254.169.254/latest/meta-data/
 
 ---
 
-➡️ [Continue to Chapter 2: Investigation »](./2-Investigation.md)
+➡️ [Continue to Chapter 2: Investigation Report »](./2-Investigation.md)
