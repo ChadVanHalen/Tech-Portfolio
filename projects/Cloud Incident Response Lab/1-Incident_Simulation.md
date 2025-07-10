@@ -63,5 +63,6 @@ curl http://169.254.169.254/latest/meta-data/
 
 [GuardDuty_Finding.json](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/artifacts/Crytpocurrency%20GuardDuty%20Finding.json)
 
+---
 
-
+➡️ [Continue to Chapter 2: Investigation »](./2-Investigation.md)
