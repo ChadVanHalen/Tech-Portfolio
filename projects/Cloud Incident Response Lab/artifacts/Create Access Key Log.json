@@ -1,0 +1,46 @@
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "Root",
+        "principalId": "486365525710",
+        "arn": "arn:aws:iam::486365525710:root",
+        "accountId": "486365525710",
+        "accessKeyId": "ASIAXCPNE63HPO5TI43C",
+        "sessionContext": {
+            "attributes": {
+                "creationDate": "2025-07-09T21:08:15Z",
+                "mfaAuthenticated": "true"
+            }
+        }
+    },
+    "eventTime": "2025-07-09T21:19:05Z",
+    "eventSource": "iam.amazonaws.com",
+    "eventName": "CreateAccessKey",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "71.195.235.59",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "requestParameters": {
+        "userName": "crypto-actor"
+    },
+    "responseElements": {
+        "accessKey": {
+            "userName": "crypto-actor",
+            "accessKeyId": "AKIAXCPNE63HE5KTLXVO",
+            "status": "Active",
+            "createDate": "Jul 9, 2025, 9:19:05 PM"
+        }
+    },
+    "requestID": "a053d520-3326-4ea3-a0cc-a49d7ebf09eb",
+    "eventID": "99ff3a38-e605-45d4-9f75-7f777a8c679a",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "486365525710",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "iam.amazonaws.com"
+    },
+    "sessionCredentialFromConsole": "true"
+}
