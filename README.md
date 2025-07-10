@@ -3,7 +3,7 @@
 ![DFIR](https://img.shields.io/badge/DFIR-Malware%20Analysis-red)
 
 # Hi, I'm Chad!
-Cybersecurity professional with 5+ years in IT and 1+ year in security—currently focused on **cloud incident response**, threat detection, and automation.
+Cybersecurity professional with 5+ years in IT and 1+ year in security—currently focused on **cloud incident response**, threat detection, and automation. <br/>
 By day, I audit environments and build detection logic. By night, I experiment in my homelab: automating AWS incident response, deploying honeypots, and occasionally rage-quitting over misconfigured NACLs.
 </br></br>
 
