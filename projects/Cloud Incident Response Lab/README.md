@@ -64,4 +64,4 @@ All key actions—including IAM user creation, EC2 launches, GuardDuty findings,
 ---
 
 ## ➡️ Next Steps
-Explore the [Incident Simulation (Chapter 1)](./1-Incident_Simulation.md) to start the lab!
+Explore the [Chapter 1: Incident Simulation – Unauthorized EC2 Launch for Crypto Mining](./1-Incident_Simulation.md) to start the lab!
