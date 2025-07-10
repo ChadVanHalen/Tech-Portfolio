@@ -36,3 +36,26 @@ resource "aws_s3_bucket" "bad_bucket" {
     Environment = "Dev"
   }
 }
+```
+
+---
+
+## 🚀 Deployment Steps
+1- Navigate to the terraform/insecure directory
+2- Initialize Terraform:
+
+```bash
+terraform init
+```
+
+Deploy infrastructure:
+```bash
+terraform apply
+```
+
+### 📸 Evidence
+Screenshots and raw Terraform code are located in:
+- artifacts/terraform_deploy_screenshots/
+- terraform/insecure/
+
+[Next ➡️ Chapter 2: Detection and Investigation](./2-Detection_and_Investigation.md)
