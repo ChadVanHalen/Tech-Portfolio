@@ -56,7 +56,7 @@ Because GuardDuty’s findings were limited, CloudTrail became essential for rec
 Using CloudTrail log filtering by user terraform-crypto-actor, a number of relevant events were observed.
 
 2. EC2 Instance Launch
-While RunInstances wasn’t directly logged, the relevant action appeared under StartInstances.
+Although the EC2 was launched, only `StartInstances` appeared prominently in the CloudTrail logs — highlighting the need to review full event history.
 
 📁 Artifacts:
 - [CloudTrail_StartInstance.json](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Terraform-S3-Misconfig-Lab/artifacts/screenshots/2%202%20StartInsatance%20log.json)
@@ -69,7 +69,7 @@ These logs helped confirm:
 ---
 
 ## 📌 Key Takeaways
-- Detection doens't always mean alerting. GuardDuty is powerful, but it is only one later in a larger incident response strategy
+- Detection doesn't always mean alerting. GuardDuty is powerful, but it is only one later in a larger incident response strategy
 - CloudTrail is critical when GuardDuty is silent. Logs don't lie... Even when the alarms are quiet
 - Simulated attacker actions may not trigger detections if done from benign IPs, or without specific threat signatures
 
