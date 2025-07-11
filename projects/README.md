@@ -26,6 +26,8 @@ A complete end-to-end AWS security lab designed around industry frameworks (NIST
 | [Azure Web Server Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Azure%20Creating%20A%20Virtual%20Machine%20and%20Web%20Server/README.md) | Create and secure a VM in Azure with firewall and NSG rules |
 | [AWS Cloud Incident Response Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Cloud%20Incident%20Response%20Lab) | Simulated crypto mining attack with detection, investigation, and remediation |
 | [Terraform S3 Misconfiguration Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Terraform%20S3%20Misconfiguration%20Lab) | IaC security lab using Terraform to deploy and fix insecure S3 buckets |
+| [AWS WAF Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20WAF%20Lab/README.md) | Deploy WAF with SQLi, XSS, and rate-limit rules in front of an Apache web app |
+| [IAM Privilege Escalation Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/IAM%20Privilege%20Escalation%20Lab/README.md) | Exploit `iam:PassRole` misconfiguration and observe layered IAM defenses |
 
 ---
 
@@ -36,6 +38,7 @@ A complete end-to-end AWS security lab designed around industry frameworks (NIST
 | [SIEM Honeypot Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Honeypot%20Lab/README.md) | Simulated attacks sent to a SIEM using honeypots to test detection |
 | [SIEM Setup Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/README.md) | Splunk & ELK lab to configure log ingestion, dashboards, alerts |
 | [SOC Analyst Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SOC%20Analyst%20Lab/README.md) | Simulated SOC triage tasks using logs and mock incidents |
+| [EventBridge Detection Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/CloudTrail%20EventBridge%20IAM%20Detection%20Lab/README.md) | Alert on IAM changes by building a CloudTrail → EventBridge → SNS pipeline |
 
 ---
 
