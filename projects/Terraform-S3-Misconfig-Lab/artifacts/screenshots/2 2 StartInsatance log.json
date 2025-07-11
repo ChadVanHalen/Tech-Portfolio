@@ -1,0 +1,63 @@
+{
+    "eventVersion": "1.10",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAXCPNE63HDMBJH66BH",
+        "arn": "arn:aws:iam::486365525710:user/terraform-crypto-actor",
+        "accountId": "486365525710",
+        "accessKeyId": "ASIAXCPNE63HK5QUM4OF",
+        "userName": "terraform-crypto-actor",
+        "sessionContext": {
+            "attributes": {
+                "creationDate": "2025-07-10T22:13:48Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2025-07-10T22:18:09Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "StartInstances",
+    "awsRegion": "us-east-2",
+    "sourceIPAddress": "71.195.235.59",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "requestParameters": {
+        "instancesSet": {
+            "items": [
+                {
+                    "instanceId": "i-0352761c1d073a1a6"
+                }
+            ]
+        }
+    },
+    "responseElements": {
+        "requestId": "aa7081b0-d8b8-4660-bf00-646963845610",
+        "instancesSet": {
+            "items": [
+                {
+                    "instanceId": "i-0352761c1d073a1a6",
+                    "currentState": {
+                        "code": 0,
+                        "name": "pending"
+                    },
+                    "previousState": {
+                        "code": 80,
+                        "name": "stopped"
+                    }
+                }
+            ]
+        }
+    },
+    "requestID": "aa7081b0-d8b8-4660-bf00-646963845610",
+    "eventID": "2046da2f-74cb-4d00-a2ee-95a610fe07bc",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "486365525710",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ec2.us-east-2.amazonaws.com"
+    },
+    "sessionCredentialFromConsole": "true"
+}

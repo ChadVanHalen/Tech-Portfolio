@@ -1,0 +1,121 @@
+[
+  {
+    "AccountId": "486365525710",
+    "Arn": "arn:aws:guardduty:us-east-2:486365525710:detector/cccbe466808d7a9f7fddadd8795866d3/finding/c6cbfb2e676f9b09df1b9e761207705a",
+    "CreatedAt": "2025-07-10T22:02:46.879Z",
+    "Description": "Amazon S3 Block Public Access was disabled for the S3 bucket misconfig-demo-bucket-chad-unique by Admin calling PutBucketPublicAccessBlock. If this behavior is not expected, it may indicate a configuration mistake or that your credentials are compromised.",
+    "Id": "c6cbfb2e676f9b09df1b9e761207705a",
+    "Partition": "aws",
+    "Region": "us-east-2",
+    "Resource": {
+      "AccessKeyDetails": {
+        "AccessKeyId": "AKIAXCPNE63HFBLY2QV5",
+        "PrincipalId": "AIDAXCPNE63HIRSGNUPVT",
+        "UserName": "Admin",
+        "UserType": "IAMUser"
+      },
+      "S3BucketDetails": [
+        {
+          "Arn": "arn:aws:s3:::misconfig-demo-bucket-chad-unique",
+          "Name": "misconfig-demo-bucket-chad-unique",
+          "Type": "Destination",
+          "CreatedAt": "2025-07-10T22:01:31.000Z",
+          "Owner": {
+            "Id": "1d954e9917276cb54d668f2aa16ebe9a6f2abf83154f33121b83323f47a28960"
+          },
+          "Tags": [
+            {
+              "Key": "Env",
+              "Value": "Lab"
+            },
+            {
+              "Key": "Name",
+              "Value": "Public Bucket"
+            }
+          ],
+          "DefaultServerSideEncryption": {
+            "EncryptionType": "AES256"
+          },
+          "PublicAccess": {
+            "PermissionConfiguration": {
+              "BucketLevelPermissions": {
+                "AccessControlList": {
+                  "AllowsPublicReadAccess": false,
+                  "AllowsPublicWriteAccess": false
+                },
+                "BucketPolicy": {
+                  "AllowsPublicReadAccess": true,
+                  "AllowsPublicWriteAccess": false
+                },
+                "BlockPublicAccess": {
+                  "IgnorePublicAcls": false,
+                  "RestrictPublicBuckets": false,
+                  "BlockPublicAcls": false,
+                  "BlockPublicPolicy": false
+                }
+              },
+              "AccountLevelPermissions": {
+                "BlockPublicAccess": {
+                  "IgnorePublicAcls": false,
+                  "RestrictPublicBuckets": false,
+                  "BlockPublicAcls": false,
+                  "BlockPublicPolicy": false
+                }
+              }
+            },
+            "EffectivePermission": "PUBLIC"
+          }
+        }
+      ],
+      "ResourceType": "AccessKey"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "AWS_API_CALL",
+        "AwsApiCallAction": {
+          "Api": "PutBucketPublicAccessBlock",
+          "CallerType": "Remote IP",
+          "RemoteIpDetails": {
+            "City": {
+              "CityName": "Buenos Aires"
+            },
+            "Country": {
+              "CountryName": "Argentina"
+            },
+            "GeoLocation": {
+              "Lat": -34.6176,
+              "Lon": -58.3809
+            },
+            "IpAddressV4": "31.40.212.42",
+            "Organization": {
+              "Asn": "136258",
+              "AsnOrg": "BrainStorm Network, Inc",
+              "Isp": "BrainStorm Network",
+              "Org": "BrainStorm Network"
+            }
+          },
+          "ServiceName": "s3.amazonaws.com",
+          "AffectedResources": {
+            "AWS::S3::Bucket": "misconfig-demo-bucket-chad-unique"
+          }
+        }
+      },
+      "Archived": false,
+      "Count": 1,
+      "DetectorId": "cccbe466808d7a9f7fddadd8795866d3",
+      "EventFirstSeen": "2025-07-10T21:56:37.000Z",
+      "EventLastSeen": "2025-07-10T21:56:37.000Z",
+      "ResourceRole": "TARGET",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{}",
+        "Type": "default"
+      }
+    },
+    "Severity": 2,
+    "Title": "Amazon S3 Block Public Access was disabled for the S3 bucket misconfig-demo-bucket-chad-unique.",
+    "Type": "Policy:S3/BucketBlockPublicAccessDisabled",
+    "UpdatedAt": "2025-07-10T22:02:46.879Z"
+  }
+]
