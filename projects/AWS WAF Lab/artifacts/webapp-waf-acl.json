@@ -1,0 +1,93 @@
+{
+  "Name": "webapp-waf-acl",
+  "Id": "b3ab4f15-c2be-4cb4-b293-d2a7c44659a6",
+  "ARN": "arn:aws:wafv2:us-east-2:486365525710:regional/webacl/webapp-waf-acl/b3ab4f15-c2be-4cb4-b293-d2a7c44659a6",
+  "DefaultAction": {
+    "Allow": {}
+  },
+  "Description": "",
+  "Rules": [
+    {
+      "Name": "block-sqli",
+      "Priority": 0,
+      "Statement": {
+        "SqliMatchStatement": {
+          "FieldToMatch": {
+            "AllQueryArguments": {}
+          },
+          "TextTransformations": [
+            {
+              "Priority": 0,
+              "Type": "NONE"
+            }
+          ],
+          "SensitivityLevel": "LOW"
+        }
+      },
+      "Action": {
+        "Block": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "block-sqli"
+      }
+    },
+    {
+      "Name": "block-xss",
+      "Priority": 1,
+      "Statement": {
+        "XssMatchStatement": {
+          "FieldToMatch": {
+            "AllQueryArguments": {}
+          },
+          "TextTransformations": [
+            {
+              "Priority": 0,
+              "Type": "NONE"
+            }
+          ]
+        }
+      },
+      "Action": {
+        "Block": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "block-xss"
+      }
+    },
+    {
+      "Name": "rate-limit-ip",
+      "Priority": 2,
+      "Statement": {
+        "RateBasedStatement": {
+          "Limit": 100,
+          "EvaluationWindowSec": 300,
+          "AggregateKeyType": "IP"
+        }
+      },
+      "Action": {
+        "Block": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "rate-limit-ip"
+      }
+    }
+  ],
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "webapp-waf-acl"
+  },
+  "Capacity": 72,
+  "ManagedByFirewallManager": false,
+  "LabelNamespace": "awswaf:486365525710:webacl:webapp-waf-acl:",
+  "RetrofittedByFirewallManager": false,
+  "OnSourceDDoSProtectionConfig": {
+    "ALBLowReputationMode": "ACTIVE_UNDER_DDOS"
+  }
+}
