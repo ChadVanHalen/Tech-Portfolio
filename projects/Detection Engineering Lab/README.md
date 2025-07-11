@@ -1,15 +1,14 @@
-# 🛡️ AWS Detection Engineering Lab: IAM Policy Alerting via EventBridge
-This quick-win lab builds a lightweight cloud detection pipeline using AWS-native tools to alert when an IAM user is granted AdministratorAccess — a potentially high-risk action. We’ll detect it using CloudTrail, filter it with EventBridge, and alert with SNS.
+# 🛡️ Detection Engineering Lab: IAM Policy Alerting via EventBridge
+This lab demonstrates how to engineer a simple yet effective detection pipeline: CloudTrail → EventBridge → SNS — alerting when an IAM user gets AdministratorAccess.
 
 > While this project focused on CloudTrail-based detection, related GuardDuty efforts were explored in other projects [(linked here)](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/steps/6%20Simulated%20Detection%20Response).
 
 ---
 
-## 🎯 What We Accomplished
-- ✅ Enabled multi-region CloudTrail logging for management events.
-- ✅ Created a detection rule using EventBridge to match AttachUserPolicy with AdministratorAccess.
-- ✅ Delivered email alerts via SNS when detection is triggered.
-- ✅ Solved tricky region-specific logging behavior in AWS.
+## 🎯 Goals
+- ✅ Enable multi-region CloudTrail logging for management events.
+- ✅ Create a detection rule using EventBridge to match AttachUserPolicy with AdministratorAccess.
+- ✅ Deliver email alerts via SNS when detection is triggered.
 - ✅ Captured step-by-step screenshots and policy artifacts.
 
 ---
