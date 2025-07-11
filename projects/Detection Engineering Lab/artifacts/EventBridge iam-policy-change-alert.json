@@ -1,0 +1,7 @@
+{
+  "source": ["aws.iam"],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail": {
+    "eventName": ["AttachUserPolicy"]
+  }
+}
