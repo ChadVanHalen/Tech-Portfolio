@@ -1,6 +1,6 @@
 # 🧨 Chapter 1: Incident Simulation – Unauthorized EC2 Launch for Crypto Mining
 
-We’re kicking off this project by doing the one thing you're never supposed to do in production: misconfigure everything on purpose.
+We’re kicking off this project by doing the one thing you should never do in production — intentionally misconfiguring everything.
 
 This chapter sets the stage for a simulated breach in AWS, using Terraform to spin up vulnerable infrastructure that mimics what happens when access control is lax, monitoring is absent, and someone thinks "*" is a good idea for IAM permissions.
 
