@@ -28,16 +28,17 @@ This lab showcased how insecure configurations can be introduced through Terrafo
 
 ## 📌 Reflections on Detection & GuardDuty
 
-While AWS GuardDuty is a valuable tool, this project exposed important limitations:
+While AWS GuardDuty is a valuable tool, this project exposed important limitations. However, relying solely on guard duty proved insufficient.
+Here's what it missed-and why:
 - **No findings** were generated for:
   - EC2 provisioning
   - SSH access
   - IAM user activity (e.g., access key creation)
-- This aligns with expected GuardDuty behavior — it often requires threat intel matches, known abuse patterns, or repeated actions.
+- This aligns with expected GuardDuty behavior — it typically requires threat intel matches, repeated suspicious actions, or known abuse patterns to trigger findings.
 
 Because other projects in this portfolio already explore **detection tooling, custom alerting, and log correlation**, this lab focused more on **remediation** and **IaC best practices**.
 
-➡️ Projects such as `EC2-Compromise-Response` and `CloudTrail-Incident-Forensics` dive deeper into detection response, anomaly hunting, and GuardDuty tuning.
+➡️ Projects such as [`AWS VPC Hardening`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/README.md) and [`Cloud Incident Response Lab`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Cloud%20Incident%20Response%20Lab/README.md) dive deeper into detection response, anomaly hunting, and GuardDuty tuning.
 
 ---
 
