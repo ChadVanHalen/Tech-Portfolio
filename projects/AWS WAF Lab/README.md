@@ -1,4 +1,4 @@
-# 🛡️ Chapter 2: AWS WAF – Filtering Web Attacks with Firewalls
+# 🛡️ AWS Web Application Firewalls – Filtering Web Attacks with Firewalls
 
 Let’s be honest: writing WAF rules is never as exciting as finding out they didn’t work after you thought they did. But in this chapter, we turn frustration into enlightenment.
 This lab demonstrates how to implement AWS WAF in front of a basic web app hosted on EC2 behind an Application Load Balancer. We configure and test the WAF using three common security rules:
