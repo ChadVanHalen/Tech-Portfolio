@@ -1,4 +1,5 @@
-# Terraform Security Templates + S3 Misconfiguration Lab — Concept
+# 🛡️ Terraform Security Templates + S3 Misconfiguration Lab
+
 ## Overview
 A hands-on lab focused on terraforming secure AWS infrastructure with an emphasis on detecting and remediating common misconfigurations, especially around S3 buckets (e.g., public exposure, lack of encryption, improper ACLs).
 
@@ -71,10 +72,7 @@ Then, identify and fix them through detection tools and Terraform remediation.
 | **Terraform** | Provision AWS resources (insecure vs. secure) |
 | **AWS S3** | Target service for security misconfigurations |
 | **AWS Config** | Detect non-compliant bucket configurations |
-| **tfsec / Checkov / Terrascan** | Static code analysis on Terraform |
-| **Conftest + OPA (or Sentinel)** | Policy-as-code for Terraform CI |
 | **AWS CLI** | Inspect and verify configurations |
-| **GitHub Actions** *(optional)* | CI pipeline for enforcement |
 
 ---
 
@@ -95,20 +93,19 @@ Then, identify and fix them through detection tools and Terraform remediation.
 
 | File | Description |
 |------|-------------|
-| `1-Insecure_Terraform_Buckets.md` | Walkthrough of creating insecure S3 buckets via Terraform |
-| `2-Detection_and_Investigation.md` | Detection using AWS Config and static analysis tools |
-| `3-Remediation.md` | Secure Terraform templates and best practices |
-| `4-Lessons_Learned.md` | Summary and recommendations for secure IaC |
-| `terraform/insecure/` | Sample Terraform code with insecure S3 setup |
-| `terraform/secure/` | Secure-by-default version of the same infrastructure |
-| `terraform/policies/` | OPA/Sentinel policies for IaC validation |
-| `artifacts/` | Evidence, screenshots, and analysis results |
+| [`Incident Simulation – Unauthorized EC2 Launch for Crypto Mining`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Terraform-S3-Misconfig-Lab/1-Insecure_Terraform_Buckets.md) | Walkthrough of creating insecure S3 buckets via Terraform |
+| [`Chapter 2: Investigation Report`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Terraform-S3-Misconfig-Lab/3-Remediation.md) | Detection using AWS Config and static analysis tools |
+| [`Chapter 3: Containment & Remediation`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Terraform-S3-Misconfig-Lab/3-Remediation.md) | Secure Terraform templates and best practices |
+| [`Chapter 4: Lessons Learned`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Terraform-S3-Misconfig-Lab/4-Lessons_Learned.md) | Summary and recommendations for secure IaC |
+| [`terraform/insecure/`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Terraform-S3-Misconfig-Lab/terraform/insecure/main.tf) | Sample Terraform code with insecure S3 setup |
+| [`terraform/secure/`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Terraform-S3-Misconfig-Lab/terraform/secure/main.tf) | Secure-by-default version of the same infrastructure |
+| [`artifacts/`](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Terraform-S3-Misconfig-Lab/artifacts) | Evidence, screenshots, and analysis results |
 
 ---
 
 ## 📸 Evidence
 
-All key misconfigurations and remediations are captured via screenshots, AWS Config findings, and tfsec output in the `artifacts/` folder.
+All key misconfigurations and remediations are captured via screenshots, AWS Config findings, and tfsec output in the [`artifacts/`](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Terraform-S3-Misconfig-Lab/artifacts/screenshots) folder.
 
 ---
 
@@ -118,20 +115,3 @@ All key misconfigurations and remediations are captured via screenshots, AWS Con
 ✅ Learn how to detect misconfigurations before deployment  
 ✅ Practice secure-by-default provisioning  
 ✅ Implement policy-as-code and continuous compliance
-
----
-
-## 📚 Optional Enhancements
-
-- Create a GitHub Actions CI pipeline with Conftest or tfsec integration
-- Add Slack/SNS alerts for AWS Config rule violations
-- Extend lab to include other services (e.g., IAM, RDS, EC2)
-
----
-
-## 🔗 Sections
-
-- [Chapter 1: Insecure Terraform Buckets](./1-Insecure_Terraform_Buckets.md)
-- [Chapter 2: Detection and Investigation](./2-Detection_and_Investigation.md)
-- [Chapter 3: Remediation](./3-Remediation.md)
-- [Chapter 4: Lessons Learned](./4-Lessons_Learned.md)
