@@ -1,12 +1,11 @@
 # 🛡️ AWS Web Application Firewalls – Filtering Web Attacks with Firewalls
 
-Let’s be honest: writing WAF rules is never as exciting as finding out they didn’t work after you thought they did. But in this chapter, we turn frustration into enlightenment.
-This lab demonstrates how to implement AWS WAF in front of a basic web app hosted on EC2 behind an Application Load Balancer. We configure and test the WAF using three common security rules:
+Yes, writing WAF rules is about as glamorous as watching paint dry—until you realize they don't work like you expected. That’s when the real lesson begins. This lab demonstrates deploying AWS WAF in front of an Apache web app (running on EC2 behind an ALB), using three rule types:
 - SQL Injection detection
 - Cross-Site Scripting (XSS) detection
 - Rate-based blocking
 
-Of course, things don’t go perfectly the first time — and that’s the point.
+Spoiler: it didn’t work perfectly the first time… and that’s the point.
 
 ## 🎯 Objectives
 
