@@ -9,7 +9,7 @@ Automate threat detection and alerting via AWS GuardDuty, Security Hub, and Lamb
 Automate response workflows (e.g., isolate compromised hosts, update security groups)
 
 2. Proposed Tech Stack
-3. | Component               | AWS Service / Tool                                                                 | Purpose                                        |
+| Component               | AWS Service / Tool                                                                 | Purpose                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------- |
 | Honeypot                | EC2 instances running honeytokens or open-source honeypots (e.g., Cowrie, Dionaea) | Capture attacker interactions                  |
 | Threat Intel Ingestion  | Lambda + EventBridge / S3                                                          | Periodically ingest IP blocklists or IOC feeds |
