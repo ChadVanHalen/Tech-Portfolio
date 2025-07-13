@@ -1,0 +1,77 @@
+import json
+import boto3
+from urllib.parse import unquote_plus
+
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    key = unquote_plus(event['Records'][0]['s3']['object']['key'])
+    print(f"Bucket: {bucket}, Key: {key}")
+
+    try:
+        response = s3.get_object(Bucket=bucket, Key=key)
+        log_data = response['Body'].read().decode('utf-8')
+    except Exception as e:
+        print(f"Error fetching object {key} from bucket {bucket}: {e}")
+        return {'statusCode': 500, 'body': f"Failed to get object: {e}"}
+
+    parsed_logs = []
+
+    for line in log_data.splitlines():
+        try:
+            entry = json.loads(line)
+            parsed_entry = process_log_entry(entry)
+            parsed_logs.append(parsed_entry)
+        except json.JSONDecodeError:
+            print(f"Skipping malformed line: {line}")
+            continue
+
+    # Output parsed logs to S3
+    output_key = f"parsed/{key.split('/')[-1]}.parsed.json"
+    try:
+        s3.put_object(
+            Bucket=bucket,
+            Key=output_key,
+            Body=json.dumps(parsed_logs, indent=2).encode('utf-8'),
+            ContentType='application/json'
+        )
+        print(f"Parsed data written to s3://{bucket}/{output_key}")
+    except Exception as e:
+        print(f"Error writing parsed output: {e}")
+
+    return {'statusCode': 200, 'body': 'Log processed and saved'}
+
+def process_log_entry(entry):
+    event_id = entry.get("eventid", "unknown")
+    src_ip = entry.get("src_ip", "N/A")
+
+    result = {
+        "eventid": event_id,
+        "src_ip": src_ip,
+        "raw": entry
+    }
+
+    if event_id == "cowrie.login.success":
+        result["summary"] = {
+            "event": "login_success",
+            "username": entry.get("username"),
+            "password": entry.get("password")
+        }
+    elif event_id == "cowrie.login.failed":
+        result["summary"] = {
+            "event": "login_failed",
+            "username": entry.get("username"),
+            "password": entry.get("password")
+        }
+    elif event_id == "cowrie.command.input":
+        command = entry.get("input", "")
+        result["summary"] = {
+            "event": "command",
+            "input": command,
+            "suspicious": any(tool in command for tool in ["wget", "curl", "nc"])
+        }
+    else:
+        result["summary"] = {"event": event_id}
+
+    return result

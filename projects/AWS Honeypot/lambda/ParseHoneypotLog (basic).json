@@ -1,0 +1,35 @@
+import json
+import boto3
+import urllib.parse
+
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    
+    # Decode the URL-encoded key
+    key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'])
+
+    print(f"Bucket: {bucket}, Key: {key}")
+    
+    try:
+        response = s3.get_object(Bucket=bucket, Key=key)
+        log_data = response['Body'].read().decode('utf-8')
+
+        for line in log_data.splitlines():
+            try:
+                log_entry = json.loads(line)
+                src_ip = log_entry.get('src_ip', 'N/A')
+                event_id = log_entry.get('eventid', 'N/A')
+                print(f"Event: {event_id} from IP: {src_ip}")
+            except json.JSONDecodeError as e:
+                print(f"JSON parsing error: {str(e)} for line: {line}")
+
+    except Exception as e:
+        print(f"Error fetching object {key} from bucket {bucket}: {str(e)}")
+        raise e
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Log processed successfully')
+    }

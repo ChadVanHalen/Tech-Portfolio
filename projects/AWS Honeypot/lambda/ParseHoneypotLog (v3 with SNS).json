@@ -1,0 +1,93 @@
+import json
+import boto3
+import time
+import os
+from urllib.parse import unquote
+
+s3 = boto3.client('s3')
+sns = boto3.client('sns')
+
+SNS_TOPIC_ARN = os.environ.get('SNS_TOPIC_ARN')
+
+def lambda_handler(event, context):
+    print(f"SNS_TOPIC_ARN: {SNS_TOPIC_ARN}")  # Debug print to verify env var
+
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    key = event['Records'][0]['s3']['object']['key']
+    key = unquote(key)  # Decode URL-encoded key
+    
+    print(f"Bucket: {bucket}, Key: {key}")
+
+    # Retry logic to wait for object availability
+    max_attempts = 10
+    delay_seconds = 1
+
+    for attempt in range(max_attempts):
+        try:
+            response = s3.get_object(Bucket=bucket, Key=key)
+            log_data = response['Body'].read().decode('utf-8')
+            break  # Successfully fetched
+        except s3.exceptions.NoSuchKey:
+            print(f"Attempt {attempt + 1}: Object not available yet. Retrying...")
+            time.sleep(delay_seconds)
+    else:
+        print(f"Failed to fetch object after {max_attempts} attempts.")
+        raise Exception(f"S3 object {key} not found after retries.")
+
+    parsed_events = []
+    suspicious_events = []
+
+    for line in log_data.splitlines():
+        try:
+            log_entry = json.loads(line)
+        except json.JSONDecodeError:
+            print(f"Skipping invalid JSON line: {line}")
+            continue
+
+        parsed_events.append(log_entry)
+
+        # Check for suspicious events
+        event_id = log_entry.get('eventid', '').lower()
+        src_ip = log_entry.get('src_ip', 'N/A')
+
+        # Example triggers: successful or failed login
+        if event_id in ['cowrie.login.success', 'cowrie.login.failed']:
+            suspicious_events.append({
+                'event': event_id,
+                'ip': src_ip,
+                'timestamp': log_entry.get('timestamp', 'N/A')
+            })
+            print(f"Suspicious event detected: {event_id} from IP: {src_ip}")
+
+    # Write parsed JSON back to S3 under parsed/ prefix
+    parsed_key = key.replace('logs/', 'parsed/') + '.parsed.json'
+    try:
+        s3.put_object(
+            Bucket=bucket,
+            Key=parsed_key,
+            Body=json.dumps(parsed_events),
+            ContentType='application/json'
+        )
+        print(f"Parsed log saved to {parsed_key}")
+    except Exception as e:
+        print(f"Error writing parsed output: {e}")
+
+    # Send notification if any suspicious activity was found and SNS topic is set
+    if suspicious_events and SNS_TOPIC_ARN:
+        message = json.dumps({
+            "suspicious_events": suspicious_events
+        }, indent=2)
+
+        sns.publish(
+            TopicArn=SNS_TOPIC_ARN,
+            Subject="⚠️ Suspicious Honeypot Activity Detected",
+            Message=message
+        )
+        print("SNS notification sent.")
+    else:
+        print("No suspicious events found or SNS_TOPIC_ARN not set. Skipping SNS publish.")
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Log parsed and stored.')
+    }
