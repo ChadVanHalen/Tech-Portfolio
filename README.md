@@ -9,7 +9,7 @@ By day, I audit environments and build detection logic. By night, I experiment i
 
 ## 🧠 What You'll Find Here
 Projects where I bridge hands-on skills with real-world security practice:
-☁️ Cloud Security: AWS & Azure hardening (with NIST/CIS controls)
+☁️ Cloud Security: AWS & Azure hardening (with GDPR, NIST & CIS controls)
 🛡️ Threat Detection & SIEM – SOC labs, alert tuning, honeypots
 🔬 Defensive R&D – Malware analysis, automation, packet captures
 </br></br>
@@ -17,7 +17,7 @@ Projects where I bridge hands-on skills with real-world security practice:
 ## 🌟 Featured Projects:
 | Project                                                                                                                                                         | Description                                                                                      |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 🔐 [AWS Cloud Security Lab: NIST & CIS VPC Hardening](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance)            | Build a secure-by-default AWS environment with automated compliance controls                     |
+| 🔐 [AWS Cloud Security Lab: GDPR, NIST & CIS VPC Hardening](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance)            | Build a secure-by-default AWS environment aligned with GDPR, NIST, and CIS automated compliance controls                     |
 | 🚨 [Cloud Incident Response Lab (AWS)](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Cloud%20Incident%20Response%20Lab)                        | Simulate a credential breach and use GuardDuty/CloudTrail to investigate and respond             |
 | 🐝 [AWS Honeypot Detection Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AWS%20Honeypot%20Detection%20Lab)                               | Deploy a honeypot on AWS, automate log ingestion, parse events with Lambda, and send alert emails |
 | 📊 [SIEM Honeypot Detection Lab](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/SIEM%20Honeypot%20Lab)                                           | Simulated attacks to test Splunk and ELK-based threat detection                                  |
