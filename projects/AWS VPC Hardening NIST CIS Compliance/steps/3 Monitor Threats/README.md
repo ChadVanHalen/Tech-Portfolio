@@ -25,6 +25,8 @@ Enabled enterprise-grade threat detection with:
 ### Compliance Alignment:
 - NIST SI-4: System monitoring
 - CIS 4.1: GuardDuty enablement
+- GDPR Article 32: Security of processing
+- GDPR Article 33: Notification of a personal data breach to the supervisory authority
 
 ## 2. Attack Simulation Methodology
 
@@ -48,6 +50,8 @@ Conducted three attack scenarios:
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%203/8%20From%20my%20jumpbox%20to%20my%20private%20server%20I%20run%20some%20ncat%20port%20scans.png)
 
+These simulations reinforce the organization’s readiness to detect unauthorized access in accordance with GDPR Article 32 and the accountability principles of Article 24.
+
 #### Sandbox Limitations
 Due to free-tier limitations, certain findings were not triggered or delayed. For demonstration, AWS sample findings were used:
 ```bash
@@ -57,6 +61,7 @@ aws guardduty create-sample-findings --finding-types "UnauthorizedAccess:IAMUser
 ## Key Takeaways
 - Even in limited environments, GuardDuty provides deep detection
 - Sample findings are a viable tool for validation
+- Aligned monitoring strategy with GDPR expectations around threat detection and breach notification readiness
 
 ---
 
