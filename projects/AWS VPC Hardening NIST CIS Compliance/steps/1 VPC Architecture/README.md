@@ -30,7 +30,8 @@ Implemented the following segmentation and access controls:
 
 ### Compliance Alignment:
 - NIST 800-53 AC-4 (Information Flow Enforcement)
-- CIS AWS Benchmark 4.1-4.3 (Network ACLs)
+- CIS AWS Benchmark 4.1–4.3 (Network ACLs)
+- GDPR Article 25 (Data Protection by Design and by Default)
 
 ## 2. Secure Jumpbox Configuration
 Deployed a bastion host in the public subnet with:
@@ -42,7 +43,8 @@ Deployed a bastion host in the public subnet with:
 
 ### Compliance Alignment:
 - NIST 800-53 IA-2 (Identification and Authentication)
-- CIS AWS Benchmark 1.1-1.5 (IAM Controls)
+- CIS AWS Benchmark 1.1–1.5 (IAM Controls)
+- GDPR Article 25 (Data Protection by Design and by Default)=
 
 ## 3. Private Server Deployment
 Configured an application server in the private subnet with:
@@ -54,6 +56,7 @@ Configured an application server in the private subnet with:
 
 ### Compliance Alignment:
 - NIST 800-53 SC-7 (Boundary Protection)
+- GDPR Article 5(1)(f) (Integrity and Confidentiality)
 
 ## 4. Security Validation
 Performed comprehensive testing including:
@@ -76,10 +79,12 @@ Configured VPC Flow Logs with:
 - NIST 800-53 AU-9 (Audit Logging)
 - NIST 800-53 SC-28 (Data-at-Rest Protection)
 - CIS AWS Benchmark 3.1-3.14 (Monitoring)
+- GDPR Article 5(1)(c) (data Minimization)
+- GDPR Article 32 (Security of Processing)
 
 # Key Takeaways
 - Successfully implemented enterprise-grade network segmentation
-- Demonstrated practical application of NIST/CIS controls
+- Demonstrated practical application of NIST, CIS, and GDPR-compliant design
 - Established foundation for subsequent security hardening phases
 
 ---
