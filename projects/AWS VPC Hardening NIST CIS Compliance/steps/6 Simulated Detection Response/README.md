@@ -111,6 +111,12 @@ To simulate full end-to-end functionality, a test event payload was manually inj
 - Implement fallback: CloudWatch alarm on failed EventBridge deliveries
 - Consider backup workflow using AWS Config or CloudTrail findings for assurance
 
-### Compliance Alignment
+### Compliance Alignment:
 - NIST IR-4: Incident Response
 - CIS AWS 4.5: Automated Threat Response
+- GDPR Article 32(1)(d): Ability to restore availability after a security incident
+- GDPR Article 33(1): Timely detection of and response to personal data breaches
+
+### GDPR Relevance
+This incident response workflow simulates real-world containment of unauthorized access, demonstrating technical readiness to meet GDPR Article 33 (breach notification within 72 hours) and Article 32 (restoration and resilience). Tagging and automated quarantining support rapid forensic analysis, helping satisfy regulatory obligations for risk communication and accountability.
+
