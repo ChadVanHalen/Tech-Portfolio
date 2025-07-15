@@ -33,6 +33,7 @@ Enabled encryption-by-default for all new EBS volumes using AWS KMS
 ### Compliance Alignment:
 - NIST 800-171 3.13.16: Encryption at rest
 - CIS AWS 2.2.1: EBS default encryption
+- GDPR Article 32(1)(a): Encryption of personal data (data at rest)
 
 ## 2. S3 Bucket Encryption Enforcement
 Configured server-side encryption (SSE-KMS) for all objects in a demo S3 bucket
@@ -44,9 +45,11 @@ Configured server-side encryption (SSE-KMS) for all objects in a demo S3 bucket
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%204/4IUPLO~1.PNG)
 
-### Compliance Alignment
+### Compliance Alignment:
 - NIST 800-53 SC-28: Protection of information at rest
 - CIS AWS 2.1.1: S3 bucket encryption
+- GDPR Article 5(1)(f): Integrity and confidentiality
+- GDPR Article 32(1)(a): Security of processing through encryption
 
 ## 3. TLS Implementation on EC2 (HTTPS)
 Attempted Let's Encrypt certificate employment, with self-signed fallback for demonstration
@@ -67,9 +70,12 @@ Attempted Let's Encrypt certificate employment, with self-signed fallback for de
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%204/8DESPI~1.PNG)
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%204/9%20Confirm%20HTTPS%20is%20enabled%20on%20the%20public%20server.png)
 
-### Compliance Alignment
+> ⚠️ While a self-signed certificate was used in the lab, production implementations would require certificates from a trusted CA to comply with GDPR's expectations for secure transmission of personal data.
+
+### Compliance Alignment:
 - NIST 800-53 SC-8: Transmission confidentiality
 - CIS AWS 2.3: TLS-enabled connections
+- GDPR Article 32(1)(a): Protection of personal data during transmission
 
 ## 4. CloudTrail KMS Key Management
 A customer-managed AWS KMS key was created to secure CloudTrail logs within S3, ensuring centralized log data is encrypted at rest and tightly access controlled
@@ -84,10 +90,12 @@ A customer-managed AWS KMS key was created to secure CloudTrail logs within S3, 
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%204/10%20Enabled%20key%20rotation%20in%20KMS.png)
 
-### Compliance Alighment
+### Compliance Alignment:
 - NIST 800-53 SC-12: Cryptographic Key Establishment
 - NIST 800-53 AU-9: Protection of Audit Information
 - CIS AWS Benchmark 2.1.3: CloudTrail Log File Encryption
+- GDPR Article 5(2): Accountability
+- GDPR Article 32(1)(b): Ability to ensure ongoing confidentiality, integrity, availability
 
 ## Validation and Lessons Learned
 ### Working Components
@@ -101,3 +109,6 @@ A customer-managed AWS KMS key was created to secure CloudTrail logs within S3, 
   - In production this would be mitigated through a custom domain
 - Self Signed Certs
   - Browser warnings acceptable for lab demonstration, but production would require a trusted CA
+
+### GDPR Relevance
+This step demonstrates technical and organizational measures aligned with GDPR Article 32, showing encryption of both data at rest and in transit. Although some components (e.g., self-signed TLS) are suitable only for test environments, the architecture supports scalability to GDPR-compliant production deployments.
