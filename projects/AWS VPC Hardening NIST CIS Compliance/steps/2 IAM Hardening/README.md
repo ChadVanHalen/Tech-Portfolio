@@ -24,7 +24,9 @@ Created emergency access account with:
 
 ### Compliance Alignment:
 - NIST 800-53 IA-2(1): Multifactor authentication for privileged accounts
-- CIS 1.1-1.2: Restrict root account use and enforce MFA
+- CIS 1.1–1.2: Restrict root account use and enforce MFA
+- GDPR Article 32: Security of processing
+- GDPR Article 25: Data protection by design and by default
 
 ## 2. Password Enforcement Policy
 Configured IAM role for compliance with NIST & CIS password complexity requirements:
@@ -37,6 +39,7 @@ Configured IAM role for compliance with NIST & CIS password complexity requireme
 ### Compliance Alignment:
 - NIST 800-63B: Password complexity requirements
 - CIS 1.5: Credential rotation every 90 days
+- GDPR Article 32: Security of processing
 
 ## 3. EC2 Read-Only Role Implementation
 - Created "EC2ReadOnly" role with the "AmazonS3ReadOnlyAccess" policy
@@ -48,7 +51,8 @@ Configured IAM role for compliance with NIST & CIS password complexity requireme
 
 ### Compliance Alignment:
 - NIST AC-6: Least privilege principle
-- CIS 1.16: Use IAMs roles instead of access keys
+- CIS 1.16: Use IAM roles instead of access keys
+- GDPR Article 5(1)(f): Data integrity and confidentiality
 
 ## 4. Continuous Monitoring with AWS Config
 Enabled three critical rules:
@@ -61,7 +65,9 @@ Note: Root account falsely flagged as non-compliant (This is known AWS behavior,
 
 ### Compliance Alignment:
 - NIST AU-6: Audit logging
-- CIS 3.1-3.3: Continuous Monitoring
+- CIS 3.1–3.3: Continuous Monitoring
+- GDPR Article 30: Records of processing activities
+- GDPR Article 32: Security of processing
 
 ## 5. CloudTrail + EventBridge Alerting
 - Created multi-region CloudTrail to S3
@@ -71,9 +77,10 @@ Note: Root account falsely flagged as non-compliant (This is known AWS behavior,
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%202/14%20Created%20a%20CloudTrail%20monitor%20for%20changes%20within%20IAMs%2C%20being%20sent%20to%20my%20previously%20created%20S3%20bucket.png)
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%202/16%20Create%20role%20within%20EventBridge%20to%20trigger%20the%20SNS%20email%20notification%20for%20IAMs%20changes.png)
 
-### Compliance
+### Compliance Alignment:
 - NIST SI-4: Real-time monitoring
-- CIS 3.6-3.7: Log integrity
+- CIS 3.6–3.7: Log integrity
+- GDPR Article 32: Security of processing
 
 ## 6. End-to-End Validation
 - Created test user via CLI
@@ -90,4 +97,4 @@ Note: Root account falsely flagged as non-compliant (This is known AWS behavior,
 - Established secure break-glass access procedures with MFA enforcement
 - Implemented zero-standing-privilege model for EC2/S3 access
 - Automated compliance through AWS Config + CloudTrail + EventBridge
-- Real world validation of alerting pipeline
+- Validated GDPR-aligned IAM architecture with logging, alerting, and least-privilege controls
