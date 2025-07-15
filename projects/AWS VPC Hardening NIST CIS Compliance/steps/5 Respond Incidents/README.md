@@ -18,8 +18,9 @@ Created a custom patch baseline to enforce secure policy updates:
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%205/1%20Create%20a%20patch%20baseline%20following%20CIS%20AWS%204.4.png)
 
 ### Compliance Alignment:
-- CIS AWS 4.4: "Automate patch management for EC2 instances"
-- NIST 800-53 SI-2: "Install security updates within 15 days"
+- CIS AWS 4.4: Automate patch management for EC2 instances
+- NIST 800-53 SI-2: Flaw remediation within defined timeframe
+- GDPR Article 32(1)(b): Ongoing confidentiality, integrity, availability of processing systems
 
 ## 2. Patch Policy Deployment
 Configured automated patching via AWS Systems Manager:
@@ -35,6 +36,9 @@ Verified hardening via:
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%205/3%20Confirm%20my%20JumpBox%20node%20is%20showing%20as%20compliant%20to%20the%20hardened%20baseline.png)
 
+### Compliance Alignment:
+- Supports GDPR Article 25: Security-by-design through automated patch workflows
+
 ## 4. Maintenance Window Automation
 Scheduled patching with zero downtime:
 - CRON schedule of cron(0 2 ? * SUN *) - Weekly on Sunday at 2 AM UTC 
@@ -42,11 +46,18 @@ Scheduled patching with zero downtime:
 
 ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20VPC%20Hardening%20NIST%20CIS%20Compliance/images/Step%205/4%20I%20create%20a%20Maintenance%20Window%20that%20will%20run%20the%20AutoPatchBaseline%20task%20every%20Sunday%20at%202%20am.png)
 
+### Compliance Alignment:
+- GDPR Article 32(1)(c): Timely restoration of availability and access
+
 # Key Takeaways
 - Proactive Vulnerability Management: Reduces exposure window for critical flaws
 - CIS/NIST Alignment: Demonstrates compliance with:
   - CIS 4.4 (Automated Patching)
   - NIST SI-2 (15 remediation SLA)
+
+### GDPR Relevance
+Automated vulnerability remediation is a foundational security control under GDPR Article 32. This step demonstrates how routine patching, verified through compliance scans and scheduled via maintenance windows, reduces risk exposure and supports ongoing data protection by design.
+
 
 ---
 
