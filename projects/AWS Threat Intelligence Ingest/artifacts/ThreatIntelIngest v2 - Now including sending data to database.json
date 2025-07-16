@@ -1,0 +1,56 @@
+import json
+import urllib.request
+import boto3
+import os
+
+def lambda_handler(event, context):
+    # Set table name from environment variable
+    table_name = os.environ.get('DYNAMODB_TABLE_NAME')
+    if not table_name:
+        return {
+            "statusCode": 500,
+            "body": "Environment variable DYNAMODB_TABLE_NAME not set"
+        }
+
+    # Initialize DynamoDB table
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(table_name)
+
+    try:
+        # Fetch the JSON data from Spamhaus
+        url = 'https://www.spamhaus.org/drop/drop_v4.json'
+        with urllib.request.urlopen(url) as response:
+            raw = response.read().decode()
+            # Spamhaus is returning multiple JSON objects (one per line), so parse line by line
+            data_lines = raw.strip().split('\n')
+            entries = [json.loads(line) for line in data_lines if line.startswith('{')]
+
+        print(f"Fetched {len(entries)} entries")
+
+        ingested = 0
+        for entry in entries:
+            # Skip metadata
+            if 'cidr' not in entry:
+                continue
+
+            item = {
+                'ioc_value': entry['cidr'],  # Required primary key
+                'type': 'ip_block',          # Optional, for clarity
+                'sblid': entry.get('sblid', 'N/A'),
+                'rir': entry.get('rir', 'N/A')
+            }
+
+            table.put_item(Item=item)
+            ingested += 1
+
+        return {
+            "statusCode": 200,
+            "body": f"Successfully ingested {ingested} IP blocks."
+        }
+
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return {
+            "statusCode": 500,
+            "body": f"Ingestion failed: {str(e)}"
+        }

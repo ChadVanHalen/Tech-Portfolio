@@ -1,0 +1,82 @@
+import boto3
+import os
+
+# Environment variables to set in Lambda config
+DDB_TABLE = os.environ['DYNAMODB_TABLE_NAME']
+WAF_IP_SET_ID = os.environ['WAF_IP_SET_ID']
+WAF_IP_SET_NAME = os.environ['WAF_IP_SET_NAME']
+WAF_SCOPE = os.environ['WAF_SCOPE']  # "REGIONAL" or "CLOUDFRONT"
+region = os.environ.get('AWS_REGION')  # This is set automatically by AWS
+
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table(DDB_TABLE)
+
+if WAF_SCOPE == "REGIONAL":
+    wafv2 = boto3.client('wafv2', region_name=region)
+else:
+    wafv2 = boto3.client('wafv2')  # Global for CLOUDFRONT
+
+def normalize_cidr(cidr):
+    if '/' not in cidr:
+        if ':' in cidr:  # IPv6
+            return cidr + '/128'
+        else:
+            return cidr + '/32'
+    return cidr
+
+def scan_dynamo_table(table):
+    items = []
+    last_evaluated_key = None
+    while True:
+        if last_evaluated_key:
+            response = table.scan(ExclusiveStartKey=last_evaluated_key)
+        else:
+            response = table.scan()
+        items.extend(response.get('Items', []))
+        last_evaluated_key = response.get('LastEvaluatedKey')
+        if not last_evaluated_key:
+            break
+    return items
+
+def lambda_handler(event, context):
+    # 1. Scan DynamoDB for all CIDRs (handle pagination)
+    try:
+        items = scan_dynamo_table(table)
+    except Exception as e:
+        return {"statusCode": 500, "body": f"Error scanning DynamoDB: {str(e)}"}
+
+    # Extract CIDRs assuming 'ioc_value' is the key for CIDR string
+    cidr_list = [item['ioc_value'] for item in items if 'ioc_value' in item]
+
+    if not cidr_list:
+        return {"statusCode": 200, "body": "No CIDRs found in DynamoDB"}
+
+    # 2. Get the current WAF IP Set
+    try:
+        ip_set = wafv2.get_ip_set(Name=WAF_IP_SET_NAME, Scope=WAF_SCOPE, Id=WAF_IP_SET_ID)
+    except Exception as e:
+        return {"statusCode": 500, "body": f"Error fetching WAF IP Set: {str(e)}"}
+
+    lock_token = ip_set['LockToken']
+    current_addresses = ip_set['IPSet'].get('Addresses', [])
+
+    # 3. Normalize CIDRs for WAF format
+    normalized_cidrs = list(set(normalize_cidr(cidr) for cidr in cidr_list))
+
+    # 4. Check if update is needed
+    if set(normalized_cidrs) == set(current_addresses):
+        return {"statusCode": 200, "body": "No changes needed in WAF IP Set"}
+
+    # 5. Update WAF IP Set with new addresses
+    try:
+        wafv2.update_ip_set(
+            Name=WAF_IP_SET_NAME,
+            Scope=WAF_SCOPE,
+            Id=WAF_IP_SET_ID,
+            Addresses=normalized_cidrs,
+            LockToken=lock_token
+        )
+    except Exception as e:
+        return {"statusCode": 500, "body": f"Error updating WAF IP Set: {str(e)}"}
+
+    return {"statusCode": 200, "body": f"Successfully updated WAF IP Set with {len(normalized_cidrs)} CIDRs"}

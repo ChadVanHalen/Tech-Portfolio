@@ -1,0 +1,43 @@
+import json
+import urllib.request
+
+def lambda_handler(event, context):
+    url = 'https://www.spamhaus.org/drop/drop_v4.json'
+
+    try:
+        with urllib.request.urlopen(url) as response:
+            if response.status != 200:
+                return {
+                    'statusCode': response.status,
+                    'body': f"Failed to download data: HTTP {response.status}"
+                }
+            raw_data = response.read().decode('utf-8')
+
+        lines = raw_data.strip().split('\n')
+
+        cidr_list = []
+        for line in lines:
+            if not line.strip():
+                continue  # skip empty lines
+            entry = json.loads(line)
+
+            # Skip metadata or entries without 'cidr'
+            if 'cidr' in entry:
+                cidr_list.append(entry['cidr'])
+            else:
+                # can log or ignore metadata entries
+                pass
+
+        print(f"Fetched {len(cidr_list)} CIDR blocks")
+
+        return {
+            'statusCode': 200,
+            'body': f"Successfully ingested {len(cidr_list)} CIDR blocks."
+        }
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return {
+            'statusCode': 500,
+            'body': 'Ingestion failed'
+        }

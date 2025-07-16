@@ -1,0 +1,32 @@
+import boto3
+import os
+
+dynamodb = boto3.resource('dynamodb')
+s3 = boto3.client('s3')
+
+table_name = os.environ['DYNAMODB_TABLE_NAME']
+bucket_name = os.environ['THREATLIST_BUCKET']
+file_key = "threatlist.txt"
+
+def lambda_handler(event, context):
+    table = dynamodb.Table(table_name)
+    response = table.scan()
+    items = response.get('Items', [])
+
+    # Extract the 'ioc_value' from each entry
+    cidr_blocks = [item['ioc_value'] for item in items if 'ioc_value' in item]
+
+    threatlist_body = "\n".join(cidr_blocks)
+
+    # Upload to S3
+    s3.put_object(
+        Bucket=bucket_name,
+        Key=file_key,
+        Body=threatlist_body.encode('utf-8'),
+        ContentType='text/plain'
+    )
+
+    return {
+        'statusCode': 200,
+        'body': f'Exported {len(cidr_blocks)} CIDRs to s3://{bucket_name}/{file_key}'
+    }

@@ -1,0 +1,64 @@
+import json
+import boto3
+import botocore
+
+guardduty = boto3.client('guardduty')
+
+# Constants: replace with your detector ID and S3 URL
+DETECTOR_ID = 'aacbe46fc889793e4928cc25ff7d9bfa'
+THREAT_INTEL_SET_NAME = 'SpamhausThreatIntelSet'
+THREAT_INTEL_SET_S3_URI = 's3://spamhaus-threatlist/threatlist.txt'
+
+def lambda_handler(event, context):
+    try:
+        # 1. List existing Threat Intel Sets
+        response = guardduty.list_threat_intel_sets(
+            DetectorId=DETECTOR_ID
+        )
+        threat_intel_set_ids = response.get('ThreatIntelSetIds', [])
+
+        # 2. Check if our Threat Intel Set exists
+        existing_tis_id = None
+        for tis_id in threat_intel_set_ids:
+            details = guardduty.get_threat_intel_set(
+                DetectorId=DETECTOR_ID,
+                ThreatIntelSetId=tis_id
+            )
+            if details['Name'] == THREAT_INTEL_SET_NAME:
+                existing_tis_id = tis_id
+                break
+
+        # 3. Prepare Threat Intel Set parameters
+        params = {
+            'DetectorId': DETECTOR_ID,
+            'Name': THREAT_INTEL_SET_NAME,
+            'Format': 'TXT',
+            'Location': THREAT_INTEL_SET_S3_URI,
+            'Activate': True
+        }
+
+        # 4. Create or Update the Threat Intel Set
+        if existing_tis_id:
+            # Update
+            guardduty.update_threat_intel_set(
+                DetectorId=DETECTOR_ID,
+                ThreatIntelSetId=existing_tis_id,
+                Location=THREAT_INTEL_SET_S3_URI,
+                Activate=True
+            )
+            action = 'updated'
+        else:
+            # Create
+            guardduty.create_threat_intel_set(**params)
+            action = 'created'
+
+        return {
+            'statusCode': 200,
+            'body': json.dumps(f'Threat Intel Set {action} successfully.')
+        }
+
+    except botocore.exceptions.ClientError as e:
+        return {
+            'statusCode': 500,
+            'body': f"Error creating/updating GuardDuty Threat Intel Set: {str(e)}"
+        }
