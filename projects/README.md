@@ -58,6 +58,7 @@ A complete end-to-end AWS security lab designed around industry frameworks (GDPR
 | Project | Description |
 |--------|-------------|
 | [Automation Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/Automation%20Lab/README.md) | Use Python scripts and AWS tools to automate threat response and policy enforcement |
+| [Automated Threat Intel Ingestion Lab](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/README.md) | Built an end-to-end pipeline to ingest, parse, and automate threat intelligence updates from public feeds into DynamoDB and AWS WAF IP Sets using Lambda and S3. While GuardDuty integration hit free-tier permission limits, this lab demonstrates practical AWS automation for dynamic threat defense. |
 
 ---
 
