@@ -35,13 +35,13 @@ While the ultimate goal was to integrate this data with AWS GuardDuty’s Threat
 ## 📁 Artifacts & Proof of Work
 | Step | Description                                               | Artifact / Screenshot              |
 | ---- | --------------------------------------------------------- | ---------------------------------- |
-| 1️⃣  | DynamoDB table created to store IOC data                  | `ThreatIntelIngest-v1.json`   |
-| 2️⃣  | EventBridge rule scheduled to run ingestion Lambda hourly | EventBridge rule config screenshot |
-| 3️⃣  | Lambda parsing JSON feed and inserting unique IPs         | `ThreatIntelIngest-v2.json`   |
-| 4️⃣  | DynamoDB query confirmed correct entries                  | DynamoDB console screenshot        |
-| 5️⃣  | Lambda exporting IP list to TXT file in S3                | `DynamoToS3.json`             |
-| 6️⃣  | TXT file verified in S3 bucket                            | S3 bucket console screenshot       |
-| 7️⃣  | Attempted GuardDuty integration blocked by permissions    | CloudWatch error logs snippet      |
+| 1️⃣  | DynamoDB table created to store IOC data                  | [`ThreatIntelIngest-v1.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/artifacts/ThreatIntelIngest%20v1%20-%20just%20ingest%20and%20parse.json)   |
+| 2️⃣  | EventBridge rule scheduled to run ingestion Lambda hourly | ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/screenshots/2%20Create%20an%20hourly%20EventBridge%20to%20run%20the%20Lambda%20function%20that%20will%20ingest%20and%20parse%20the%20JSON%20from%20spamhaus.png) |
+| 3️⃣  | Lambda parsing JSON feed and inserting unique IPs         | [`ThreatIntelIngest-v2.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/artifacts/ThreatIntelIngest%20v2%20-%20Now%20including%20sending%20data%20to%20database.json)   |
+| 4️⃣  | DynamoDB query confirmed correct entries                  | ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/screenshots/5%20Confirmed%20I%20can%20now%20see%20the%20imported%20CIDR%20ranges.png)        |
+| 5️⃣  | Lambda exporting IP list to TXT file in S3                | [`DynamoToS3.json`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/artifacts/DynamoToS3.json)             |
+| 6️⃣  | TXT file verified in S3 bucket                            | ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/screenshots/8%20Confirm%20the%20file%20gets%20created%2C%20and%20the%20output%20is%20correct%20with%20the%20collected%20CIDR%20ranges.png)       |
+| 7️⃣  | Attempted GuardDuty integration blocked by permissions    | ![](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AWS%20Threat%20Intelligence%20Ingest/screenshots/12%20GuardDuty%20errors%20-%20one%20of%20many%20many%20different%20kinds.png)      |
 
 # 🔚 Summary
 This project built a robust, automated pipeline to ingest and process threat intelligence data in AWS using serverless components—Lambda, DynamoDB, S3, and EventBridge. While integration with GuardDuty Threat Intel Sets was blocked by account restrictions, the core ingestion and export functionality works well and can be reused or extended.
