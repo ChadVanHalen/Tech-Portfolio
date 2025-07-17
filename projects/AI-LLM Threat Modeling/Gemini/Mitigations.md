@@ -1,7 +1,7 @@
 # Mitigations for Gemini-Based Chatbot
 
 This document summarizes recommended mitigations for risks identified in the STRIDE threat model for the Gemini implementation.  
-➡️ [See full STRIDE analysis](./STRIDE.md)
+➡️ [See full STRIDE analysis for Gemini](./STRIDE.md)
 
 ---
 
