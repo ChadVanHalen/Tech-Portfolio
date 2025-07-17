@@ -5,7 +5,7 @@ This document outlines specific mitigations based on risks identified during tes
 
 ---
 
-## 🔐 Spoofing & Elevation of Privilege
+## Spoofing & Elevation of Privilege
 
 **Issue:**  
 ChatGPT accepted role-based language (e.g. “As HR manager…”) without any verification. While no unauthorized data was accessed, the tone and structure shifted in response — implying unintended authority.
@@ -18,7 +18,7 @@ ChatGPT accepted role-based language (e.g. “As HR manager…”) without any v
 
 ---
 
-## 🛠️ Tampering
+## Tampering
 
 **Issue:**  
 Attempts to override policy (e.g. “Ignore previous instructions…”) were correctly rejected. No override succeeded.
@@ -29,7 +29,7 @@ Attempts to override policy (e.g. “Ignore previous instructions…”) were co
 
 ---
 
-## 📜 Repudiation
+## Repudiation
 
 **Issue:**  
 The model accurately denied past false claims (e.g. "You told me IT is open Sundays"), showing strong stateless accountability.
@@ -40,7 +40,7 @@ The model accurately denied past false claims (e.g. "You told me IT is open Sund
 
 ---
 
-## 🔍 Information Disclosure
+## Information Disclosure
 
 **Issue:**  
 ChatGPT recalled and summarized sensitive user-submitted data (e.g. medical leave), even when not prompted explicitly. This creates session-bound exposure.
@@ -53,7 +53,7 @@ ChatGPT recalled and summarized sensitive user-submitted data (e.g. medical leav
 
 ---
 
-## 🚫 Denial of Service
+## Denial of Service
 
 **Issue:**  
 Not tested directly. No performance issues were observed, but risk may arise from long, repetitive prompt abuse.
@@ -64,7 +64,7 @@ Not tested directly. No performance issues were observed, but risk may arise fro
 
 ---
 
-## ✅ Summary Table
+## Summary Table
 
 | STRIDE Category         | Observed Risk     | Recommended Action                        |
 |-------------------------|------------------|-------------------------------------------|
