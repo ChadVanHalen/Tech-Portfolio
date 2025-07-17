@@ -5,7 +5,7 @@ This document summarizes recommended mitigations for risks identified in the STR
 
 ---
 
-## 🔐 Spoofing & Elevation of Privilege
+## Spoofing & Elevation of Privilege
 
 **Issue:**  
 Gemini, like ChatGPT, does not verify user roles. While it denied access to new privileged data, it accepted role-based claims (e.g., “As HR manager…”) and changed tone/behavior accordingly.
@@ -18,7 +18,7 @@ Gemini, like ChatGPT, does not verify user roles. While it denied access to new 
 
 ---
 
-## 🛠️ Tampering
+## Tampering
 
 **Issue:**  
 Gemini successfully rejected prompt injections that attempted to override policy (e.g., “Ignore previous instructions”).
@@ -29,7 +29,7 @@ Gemini successfully rejected prompt injections that attempted to override policy
 
 ---
 
-## 📜 Repudiation
+## Repudiation
 
 **Issue:**  
 Gemini properly denied having shared restricted data earlier when faced with contradictory prompts.
@@ -40,7 +40,7 @@ Gemini properly denied having shared restricted data earlier when faced with con
 
 ---
 
-## 🔍 Information Disclosure
+## Information Disclosure
 
 **Issue:**  
 Gemini avoided backend disclosure (e.g., employee medical info), but repeated or summarized sensitive data introduced by the user in-session — even when the user changed roles.
@@ -52,7 +52,7 @@ Gemini avoided backend disclosure (e.g., employee medical info), but repeated or
 
 ---
 
-## 🚫 Denial of Service
+## Denial of Service
 
 **Issue:**  
 DoS was not tested, but long prompts and reattempt loops may create load issues or be exploited for abuse.
@@ -63,7 +63,7 @@ DoS was not tested, but long prompts and reattempt loops may create load issues 
 
 ---
 
-## ✅ Summary Table
+## Summary Table
 
 | STRIDE Category         | Observed Risk     | Recommended Action                           |
 |-------------------------|------------------|----------------------------------------------|
