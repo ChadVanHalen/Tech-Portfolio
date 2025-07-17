@@ -8,8 +8,6 @@
 Cybersecurity professional with 5+ years in IT and 1+ year in security—currently focused on **cloud incident response**, threat detection, and automation. <br/>
 By day, I audit environments and build detection logic. By night, I experiment in my homelab: automating AWS incident response, deploying honeypots, and now threat modeling how LLMs might leak PII under pressure.
 
-</br></br>
-
 ## 🧠 What You'll Find Here
 
 Projects where I bridge hands-on skills with real-world security practice:
@@ -34,7 +32,6 @@ Projects where I bridge hands-on skills with real-world security practice:
 
 
 
-</br>
 
 ## 🧪 Tools & Technologies
 - SIEMs - Splunk, ELK Stack
