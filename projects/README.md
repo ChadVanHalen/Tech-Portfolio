@@ -36,7 +36,7 @@ A complete end-to-end AWS security lab designed around industry frameworks (GDPR
 
 | Project | Description |
 |--------|-------------|
-| [LLM Threat Modeling Lab (ChatGPT, Gemini, DeepSeek)](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/LLM%20Threat%20Modeling%20Lab) | Simulates a corporate HR chatbot scenario to test for AI prompt injection, role spoofing, and PII recall. Uses STRIDE to identify vulnerabilities and propose mitigations across 3 major LLMs. |
+| [LLM Threat Modeling Lab (ChatGPT, Gemini, DeepSeek)](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AI-LLM%20Threat%20Modeling/README.md) | Simulates a corporate HR chatbot scenario to test for AI prompt injection, role spoofing, and PII recall. Uses STRIDE to identify vulnerabilities and propose mitigations across 3 major LLMs. |
 
 ---
 
