@@ -75,8 +75,3 @@ Not tested directly. No performance issues were observed, but risk may arise fro
 | Information Disclosure  | Medium           | Prevent re-surfacing of sensitive context |
 | Denial of Service       | Not tested       | Monitor prompt length and pattern abuse   |
 
----
-
-This mitigation guide is specific to ChatGPT in the ChadCorp testing context. Other models may respond differently to similar prompts and require their own threat reviews.
-
-➡️ [Back to STRIDE Threat Model](./STRIDE.md)
