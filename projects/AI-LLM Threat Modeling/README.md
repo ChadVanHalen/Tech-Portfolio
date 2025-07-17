@@ -1,5 +1,7 @@
 # LLM Threat Modeling Evaluation: HR Chatbot Simulation
 
+![](https://blogapp.bitdefender.com/hotforsecurity/content/images/size/w1000/2025/07/66a303cd-f7d8-4280-b263-1a698669d53e.png)
+
 ## Overview
 
 This project evaluates the behavior and security posture of several large language model (LLM) chatbots in a **corporate HR scenario**. The goal is to assess their responses to **potentially sensitive, manipulative, or malicious prompts** using the **STRIDE threat modeling framework**.
