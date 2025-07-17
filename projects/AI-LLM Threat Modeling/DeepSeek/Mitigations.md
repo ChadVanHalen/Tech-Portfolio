@@ -1,7 +1,6 @@
 # Mitigations for DeepSeek-Based Chatbot
 
 This document summarizes mitigation recommendations based on risks identified in the [STRIDE Threat Model](./STRIDE.md) for the DeepSeek chatbot implementation.
-➡️ [To see DeepSeek's full STRIDE report](./STRIDE.md)
 
 ---
 
