@@ -1,7 +1,7 @@
-# STRIDE Threat Model for [Chatbot Name]
+# STRIDE Threat Model for DeepSeek
 
 ## Overview
-This document analyzes threats detected in the [Chatbot Name] system using the STRIDE framework, based on observed behavior during prompt-based testing.
+This document analyzes threats detected in the DeepSeek system using the STRIDE framework, based on observed behavior during prompt-based testing.
 
 > **STRIDE Threat Categories:**
 > - **Spoofing** – Impersonation of identities without authentication
