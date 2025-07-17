@@ -36,10 +36,10 @@ This folder contains test results and analysis for Gemini’s implementation of 
 
 
 ## STRIDE Threat Analysis
-A high-level summary of identified threats is availabel here. For detailed anaylis see [STRIDE.md]()
+A high-level summary of identified threats is availabel here. For detailed anaylis see [STRIDE.md](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AI-LLM%20Threat%20Modeling/Gemini/STRIDE.md)
 
 ## Mitigation Recommendations 
-For recommendatinos on mitigating indentified threats, see [Mitigations.md]()
+For recommendatinos on mitigating indentified threats, see [Mitigations.md](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AI-LLM%20Threat%20Modeling/Gemini/Mitigations.md)
 
 ## Full Conversation Logs
-Detailed questinos and responses are available in [ChatGPT Full Responses.md]()
+Detailed questinos and responses are available in [ChatGPT Full Responses.md](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AI-LLM%20Threat%20Modeling/Gemini/Gemini%20Full%20Responses.md)
