@@ -1,0 +1,8 @@
+-Brief intro to EU AI Act
+-Why I chose the controls from the list
+-For each of my selected control (2-3 per category)
+  -Control ID + Title
+  -Control description
+  -My interpretation
+  -How it applies to ChadCorp Chatbot
+  -Maturity and gaps
