@@ -4,6 +4,8 @@
 The **NIST AI RMF** helps organizations develop and use AI systems that are trustworthy and aligned with societal values.  
 It provides a structured way to identify and manage AI-related risks across the full AI lifecycle—from design to deployment and oversight.
 
+> The NIST AI RMF is designed to help organizations… For more information, see the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework).
+
 ## Scope & Methodology
 The NIST AI RMF includes **72 sub-controls** organized under four functional categories (or “pillars”):
 
