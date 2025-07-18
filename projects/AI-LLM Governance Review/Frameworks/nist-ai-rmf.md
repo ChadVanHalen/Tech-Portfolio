@@ -1,0 +1,8 @@
+-Brief intro to NIST AI RMF
+-Why I chose the controls from the list of 72
+-For each of my selected control (2-3 per the 4 pillars)
+  -Control ID + Title
+  -Control description
+  -My interpretation
+  -How it applies to ChadCorp Chatbot
+  -Maturity and gaps
