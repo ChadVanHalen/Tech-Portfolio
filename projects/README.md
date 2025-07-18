@@ -37,6 +37,7 @@ A complete end-to-end AWS security lab designed around industry frameworks (GDPR
 | Project | Description |
 |--------|-------------|
 | [LLM Threat Modeling Lab (ChatGPT, Gemini, DeepSeek)](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AI-LLM%20Threat%20Modeling/README.md) | Simulates a corporate HR chatbot scenario to test for AI prompt injection, role spoofing, and PII recall. Uses STRIDE to identify vulnerabilities and propose mitigations across 3 major LLMs. |
+| [AI Governance Review for LLM-Based Systems](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/AI-LLM%20Governance%20Review) | STRIDE-modeled risks were mapped to NIST, EU AI Act, and ISO 42001 controls. Produced a governance checklist tailored to internal HR/IT chatbot use of public LLM APIs. |
 
 ---
 
