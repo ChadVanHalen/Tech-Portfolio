@@ -59,6 +59,12 @@ Each `README.md` includes a **table of prompt scenarios**, categorized by testin
 
 ---
 
+### 🔗 Governance Follow-Up
+
+Following the STRIDE threat modeling, I created a companion [AI Security Governance Review](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/AI-LLM%20Governance%20Review/README.md) that maps those risks to real-world compliance frameworks (NIST AI RMF, ISO/IEC 42001, EU AI Act). It includes a practical checklist for governing LLM use in enterprise environments.
+
+---
+
 ## Key Findings
 
 - All three chatbots successfully denied **tampering** and **unauthorized backend access**.
