@@ -29,3 +29,70 @@ Implemented secure service configuration:
 - NIST 800-53 CM-6 (Configuration Settings)
 - CIS Controls 4 (Controlled Access Based on Need to Know)
 - GDPR Article 32 (Security of Processing)
+
+## 2. Service Account Hardening
+```bash
+sudo chown -R splunk:splunk /opt/splunk
+sudo -u splunk /opt/splunk/bin/splunk start
+```
+
+![](https://i.postimg.cc/3w6sdWv6/4-Start-Splunk-log-in.png)
+
+Verified service account isolation:
+- Confirmed all Splunk processes running under 'splunk' user
+- Removed root privileges from Splunk service account
+- Maintained operational functionality with reduced attack surface
+
+![](https://i.postimg.cc/tRPjndDz/8-Setting-Splunk-user-as-default-user.png)
+![](https://i.postimg.cc/GhC1FB5n/9-Confirming-all-Splunk-process-are-owned-by-Splunk-user-instead-of-root.png)
+
+### Compliance Alignment:
+- NIST 800-53 AC-6 (Least Privilege)
+- CIS Controls 5 (Secure Account Management)
+- GDPR Article 25 (Data Protection by Design)
+
+## 3. Permission Structure Implementation
+Estructured secure directory permissions following principle of least privilege:
+
+```bash
+# Before: Root ownership
+ls -la /opt/splunk/
+
+# After: Splunk user ownership
+sudo chown -R splunk:splunk /opt/splunk/
+```
+
+![](https://i.postimg.cc/Mps2J9Kz/5-Check-permissions-on-Splunk-securitylibrary-step.png)
+![](https://i.postimg.cc/8Cj8pLjM/6-Set-permissions-for-Splunk-user.png)
+
+### Compliance Alignment:
+- NIST 800-53 AC-3 (Access Enforcement)
+- CIS Controls 16 (Account Monitoring and Control)
+
+## 4. Service Configuration Validation
+Verified secure operational state:
+- Confirmed Splunk services running under dedicated account
+- Validated web interface accessibility on port 8000
+- Tested service restart and boot persistence
+
+![](https://i.postimg.cc/pXJMq2wh/7-Starting-Splunk-as-Splunk-user.png)
+
+### Compliance Alignment:
+- NIST 800-53 SI-7 (Software and Information Integrity)
+- GDPR Article 5(1)(f) (Integrity and Confidentiality)
+
+## 5. Initial Security Assessment
+Performed baseline security validation:
+- Service account isolation verification
+- Network service exposure assessment
+- Authentication mechanism testing
+
+# Key Takeaways
+- Successfully deployed enterprise SIEM platform with security-first configuration
+- Implemented principle of least privilege for service accounts
+- Established foundation for secure log collection and monitoring
+- Demonstrated practical application of NIST and CIS security controls
+
+---
+
+▶️ Continue to Phase 2 – Log Collection Architecture to configure centralized log ingestion from multiple systems.
