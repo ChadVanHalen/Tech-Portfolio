@@ -122,5 +122,5 @@ Verified successful log collection and indexing:
 
 ---
 
-▶️ Continue to Phase 3 – Detection Engineering to develop custom security detection rules and alerting.
+▶️ Continue to [Phase 3 – Detection Engineering](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/3%20Detection%20Engineering/README.md) to develop custom security detection rules and alerting.
 
