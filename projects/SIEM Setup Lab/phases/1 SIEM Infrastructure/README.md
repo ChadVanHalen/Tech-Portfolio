@@ -95,4 +95,4 @@ Performed baseline security validation:
 
 ---
 
-▶️ **Next Phase** [Phase 2 – Log Collection Architecture](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/2%20Log%20Collection%20Architecture/README.md) documents the configuration of centralized log ingestion from multiple systems.
+▶️ The log collection architecture is detailed in [Phase 2 – Log Collection Architecture](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/2%20Log%20Collection%20Architecture/README.md)
