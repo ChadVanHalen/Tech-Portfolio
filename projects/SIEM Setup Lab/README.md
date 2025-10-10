@@ -17,10 +17,10 @@ This hands-on project demonstrates end-to-end deployment and configuration of a 
 ## 📁 Implementation Phases
 | Phase | Title | Description |
 |------|-------|-------------|
-| [▶ Phase 1]() | **SIEM Infrastructure & Hardening** | Secure installation of Splunk Enterprise on Ubuntu Server with proper user permissions and service configuration |
-| [▶ Phase 2]() | **Log Collection Architecture** | Deployment of Universal Forwarder with input/output configuration for auth.log monitoring |
-| [▶ Phase 3]() | **Detection Engineering** | Development and refinement of SSH brute-force detection rules and alerting |
-| [▶ Phase 4]() | **Security Operation** | Creation of operational dashboards and visualization of attack patterns |
+| [▶ Phase 1](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/1%20SIEM%20Infrastructure/README.md) | **SIEM Infrastructure & Hardening** | Secure installation of Splunk Enterprise on Ubuntu Server with proper user permissions and service configuration |
+| [▶ Phase 2](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/2%20Log%20Collection%20Architecture/README.md) | **Log Collection Architecture** | Deployment of Universal Forwarder with input/output configuration for auth.log monitoring |
+| [▶ Phase 3](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/3%20Detection%20Engineering/README.md) | **Detection Engineering** | Development and refinement of SSH brute-force detection rules and alerting |
+| [▶ Phase 4](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/4%20Security%20Operations/README.md) | **Security Operation** | Creation of operational dashboards and visualization of attack patterns |
 
 ---
 
