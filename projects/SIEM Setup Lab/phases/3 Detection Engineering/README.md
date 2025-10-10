@@ -119,4 +119,4 @@ Established procedures for security team utilization:
 
 ---
 
-▶️ Continue to [Phase 4 – Security Operations](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/4%20Security%20Operations/README.md) to implement visualization dashboards and operational security monitoring.
+▶️ Security operations and visualization are documented in [Phase 4 – Security Operations](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/SIEM%20Setup%20Lab/phases/4%20Security%20Operations/README.md) 
