@@ -13,8 +13,8 @@ This phase demonstrates the secure deployment and configuration of Splunk Enterp
 ## 1. Secure Splunk Installation
 Downloaded and installed Splunk Enterprise on Ubuntu Server with security-focused configuration:
  ```bash
-    wget -O splunk-package.deb "https://download.splunk.com/..."
-    sudo dpkg -i splunk-package.deb
+wget -O splunk-package.deb "https://download.splunk.com/..."
+sudo dpkg -i splunk-package.deb
 ```
 ![](https://i.postimg.cc/Pxvk41HT/1-Ubuntu-VM-Splunk.png)
 
