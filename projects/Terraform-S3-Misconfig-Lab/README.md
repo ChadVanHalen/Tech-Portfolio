@@ -1,95 +1,44 @@
-# 🛡️ Terraform Security Templates + S3 Misconfiguration Lab
+# Terraform Security Lab: Finding and Fixing AWS Misconfigurations
 
 ## Overview
-A hands-on lab focused on terraforming secure AWS infrastructure with an emphasis on detecting and remediating common misconfigurations, especially around S3 buckets (e.g., public exposure, lack of encryption, improper ACLs).
+I built a hands-on lab to understand how dangerous misconfigurations slip into cloud environments through Infrastructure as Code (IaC). The goal was simple: intentionally create insecure AWS resources using Terraform, then find and fix them using real security tools.
 
-## Use Case
-- Simulate insecure Terraform templates that provision S3 buckets with risky configurations (public read/write, missing encryption).
-- Detect these misconfigurations using tools like AWS Config Rules, Terraform Sentinel (or open source alternatives), and Terraform plan/diff scanning tools.
-- Investigate and remediate by updating Terraform code and applying secure templates.
-- Teach secure IaC (Infrastructure as Code) practices to avoid cloud security missteps.
-
-## Core Learning Objectives
-- Learn Terraform basics with AWS resources.
-- Identify S3 bucket misconfigurations via Terraform code and AWS scanning tools.
-- Practice remediating insecure configurations in IaC before deployment.
-- Understand continuous compliance via Terraform policy-as-code.
-
-## Suggested Tools & Services
-- Terraform CLI + AWS Provider
-- AWS S3
-- AWS Config Rules (managed rules for S3 bucket encryption, public access blocks)
-- Terraform Sentinel (if licensed) or Open Policy Agent (OPA) + Conftest as open alternatives
-- Terraform Cloud/Enterprise (optional, for policy enforcement)
-- Static code analysis tools like tfsec, checkov, or terrascan
-
-## Possible Structure / Steps
-
-| Step | Description                                                                                   |
-| ---- | --------------------------------------------------------------------------------------------- |
-| 1    | Create intentionally insecure Terraform S3 bucket templates                                   |
-| 2    | Deploy Terraform and observe resulting S3 misconfigurations                                   |
-| 3    | Use AWS Config + CLI tools + tfsec to detect issues                                           |
-| 4    | Investigate findings and create reports                                                       |
-| 5    | Remediate Terraform templates to enforce best practices (encryption, private access, no ACLs) |
-| 6    | Implement policy-as-code checks with OPA/Conftest or Sentinel                                 |
-| 7    | Re-deploy and verify compliance                                                               |
-| 8    | Write lessons learned and security best practices for IaC                                     |
-
-# 🛡️ Terraform Security Templates + S3 Misconfiguration Lab
-
-## 📘 Overview
-
-This lab simulates common security misconfigurations in AWS S3 buckets using Terraform, and demonstrates how to detect, investigate, and remediate these issues using infrastructure-as-code best practices and native AWS tooling.
-
-The goal is to build secure-by-default infrastructure while gaining hands-on experience with:
-
-- Terraform provisioning
-- S3 security risks
-- Static code analysis
-- Policy-as-code (OPA/Sentinel)
-- AWS Config compliance
+This project mirrors exactly how many real cloud breaches start - with overly permissive configurations deployed through automation.
 
 ---
 
-## 🔍 Use Case
+## What I Built (And Broke)
+I wrote Terraform code that deployed three critical misconfigurations:
 
-Simulate the following insecure configurations via Terraform:
+- Wildcard IAM Policy: Created an IAM user with "*:*" permissions
+- Public S3 Bucket: Deployed a bucket with public read access enabled
+- Open SSH Access: Configured a security group allowing SSH from 0.0.0.0/0
 
-- Public S3 bucket access (ACLs or bucket policies)
-- Lack of default encryption
-- Versioning disabled
-- Logging not enabled
-
-Then, identify and fix them through detection tools and Terraform remediation.
+Then I acted as an attacker would: logged in as the over-privileged user, launched EC2 instances, and accessed the public S3 bucket.
 
 ---
 
-## 💻 Tools & Services Used
+## Key Findings 
+### Detection Gaps Are Real
+AWS GuardDuty caught the S3 misconfigurations but missed the EC2 instance launch, IAM key creation, and SSH activity. This highlighted that even native AWS security services have blind spots.
 
-| Tool | Purpose |
-|------|---------|
-| **Terraform** | Provision AWS resources (insecure vs. secure) |
-| **AWS S3** | Target service for security misconfigurations |
-| **AWS Config** | Detect non-compliant bucket configurations |
-| **AWS CLI** | Inspect and verify configurations |
+### Manual Investigation Fills the Gaps
+CloudTrail logs revealed the full attack chain that GuardDuty missed. The IAM user's activities - from key creation to instance launch - were all visible in CloudTrail, just not flagged as suspicious.
 
----
-
-## 🧭 Steps
-
-| Step | Description |
-|------|-------------|
-| 1. Insecure Infrastructure | Use Terraform to create misconfigured S3 buckets |
-| 2. Detect Misconfigurations | Use AWS Config and tfsec to identify violations |
-| 3. Investigate | Review audit logs and code to trace risks |
-| 4. Remediate | Update Terraform code to align with best practices |
-| 5. Prevent Future Issues | Implement policy-as-code validation |
-| 6. Lessons Learned | Summarize outcomes and security takeaways |
+### Remediation Requires Code Changes
+Fixing issues in the AWS Console isn't enough. I had to update the Terraform code to prevent the same misconfigurations from reappearing on the next deployment.
 
 ---
 
-## 📂 Project Files
+## Tools & Techniques Used
+- Terraform for infrastructure provisioning
+- AWS GuardDuty for security monitoring
+- AWS CloudTrail for log analysis
+- Manual investigation to connect the dots
+
+---
+
+## Project Files
 
 | File | Description |
 |------|-------------|
@@ -103,15 +52,7 @@ Then, identify and fix them through detection tools and Terraform remediation.
 
 ---
 
-## 📸 Evidence
-
-All key misconfigurations and remediations are captured via screenshots, AWS Config findings, and tfsec output in the [`artifacts/`](https://github.com/ChadVanHalen/Tech-Portfolio/tree/main/projects/Terraform-S3-Misconfig-Lab/artifacts/screenshots) folder.
-
----
-
-## 📈 Outcome
-
-✅ Understand Terraform IaC risks  
-✅ Learn how to detect misconfigurations before deployment  
-✅ Practice secure-by-default provisioning  
-✅ Implement policy-as-code and continuous compliance
+## Key Takeaways
+1. IaC security starts before deployment - Static analysis tools could have caught these issues pre-deployment
+2. Multiple detection layers are essential - No single tool catches everything
+3. Remediation isn't complete until the code is fixed - Console changes are temporary fixes
