@@ -55,10 +55,9 @@ This lab demonstrates the full vulnerability management lifecycle: scanning a vu
 
 | Step | Description | Screenshot |
 | ---- | ----------- | ---------- |
-| 1 | Nessus Essentials dashboard after setup | [screenshot] |
-| 2 | Configuring scan targets (Metasploitable IP, EC2 IP, Proxmox host) | [screenshot] |
-| 3 | Scan results showing critical findings on Metasploitable | [screenshot] |
-| 4 | POA&M spreadsheet with tracked findings | [screenshot] |
+| 1 | Configuring scan targets (Metasploitable IP, EC2 IP, Proxmox host) | [screenshot](https://github.com/ChadVanHalen/Tech-Portfolio/blob/95777e4c85cd882ad942188dc2189a1753a4bb8b/projects/POAM%20Lab/artifacts/Network%20Scan%20config.png) |
+| 2 | Scan results showing critical findings on Metasploitable | [screenshot](https://github.com/ChadVanHalen/Tech-Portfolio/blob/95777e4c85cd882ad942188dc2189a1753a4bb8b/projects/POAM%20Lab/artifacts/Nessus%20Results.png) |
+| 3 | POA&M spreadsheet with tracked findings | [screenshot](https://github.com/ChadVanHalen/Tech-Portfolio/blob/95777e4c85cd882ad942188dc2189a1753a4bb8b/projects/POAM%20Lab/artifacts/Network%20Scans%202026.06.16.png) |
 
 ## Troubleshooting & Lessons Learned
 
@@ -72,8 +71,7 @@ This lab demonstrates the full vulnerability management lifecycle: scanning a vu
 
 ## Artifacts
 
-- [`POA&M_Tracker.xlsx`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/POAM%20Nessus%20Lab/artifacts/POA&M_Tracker.xlsx)
-- [`Nessus_Scan_Results.csv`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/main/projects/POAM%20Nessus%20Lab/artifacts/Nessus_Scan_Results.csv)
+- [`Networks Scans 2026.06.16.xlsx`](https://github.com/ChadVanHalen/Tech-Portfolio/blob/95777e4c85cd882ad942188dc2189a1753a4bb8b/projects/POAM%20Lab/artifacts/Network%20Scans%202026.06.16.xlsx)
 
 ## Summary
 
