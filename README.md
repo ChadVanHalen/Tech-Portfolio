@@ -7,7 +7,7 @@
 
 # Hi, I'm Chad!
 
-Cybersecurity professional with 5+ years in IT and 1+ year in security—currently focused on **cloud incident response**, threat detection, and automation. <br/>
+Cybersecurity professional with 5+ years in IT and 2 years in security, currently focused on **cloud incident response**, threat detection, and automation. <br/>
 By day, I audit environments and build detection logic. By night, I experiment in my homelab: automating AWS incident response, deploying honeypots, and now threat modeling how LLMs might leak PII under pressure.
 
 ---
